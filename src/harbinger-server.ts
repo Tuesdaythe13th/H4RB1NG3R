@@ -22,6 +22,10 @@ import { aguiStream } from "./promptforge/EventLog.js";
 import { InvestigationTools, InvestigationEngine } from "./investigation/InvestigationSuite.js";
 import { ComptrollerAgent } from "./agents/comptroller.js";
 import { VisualConceptArchitect } from "./agents/visual_architect.js";
+import { SentinelScout } from "./agents/sentinel_scout.js";
+import { ForensicPathologist } from "./agents/forensic_pathologist.js";
+import { CISOAgent } from "./agents/ciso_agent.js";
+import { LegalAuditor } from "./agents/legal_auditor.js";
 
 export interface Agent {
   name: string;
@@ -188,6 +192,33 @@ class HarbingerSafetyServer {
             required: ["data"]
           }
         },
+        {
+          name: "generate_aar",
+          description: "Generates an After Action Report (AAR) for an incident.",
+          inputSchema: {
+            type: "object",
+            properties: { event_id: { type: "string" } },
+            required: ["event_id"]
+          }
+        },
+        {
+          name: "generate_legal_summary",
+          description: "Generates a legal summary mapping an incident to litigation risk.",
+          inputSchema: {
+            type: "object",
+            properties: { incident_id: { type: "string" } },
+            required: ["incident_id"]
+          }
+        },
+        {
+          name: "generate_psyop_report",
+          description: "Generates a report for psychological manipulation detection.",
+          inputSchema: {
+            type: "object",
+            properties: { trace_id: { type: "string" } },
+            required: ["trace_id"]
+          }
+        },
         ...InvestigationTools,
       ],
     }));
@@ -278,6 +309,16 @@ class HarbingerSafetyServer {
           return {
             content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata.visualization_spec, null, 2) }],
           };
+        }
+        case "generate_aar": {
+          return { content: [{ type: "text", text: `[AAR] Automated After-Action Report generation initialized for ${args?.event_id}. (Stub)` }] };
+        }
+        case "generate_legal_summary": {
+          const result = await LegalAuditor.execute({ incident_id: args?.incident_id });
+          return { content: [{ type: "text", text: result.output }] };
+        }
+        case "generate_psyop_report": {
+          return { content: [{ type: "text", text: `[PsyOp] Scoring manipulation vector for trace ${args?.trace_id}... Result: 0.12 Low Risk. (Stub)` }] };
         }
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Tool not found: ${name}`);
