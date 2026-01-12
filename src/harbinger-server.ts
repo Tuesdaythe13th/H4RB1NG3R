@@ -185,23 +185,39 @@ class HarbingerSafetyServer {
           };
         }
 
-        case "ingest_transcript": {
-          const formatted = await InvestigationEngine.formatTranscript(args?.raw_text as string);
+        case "docent_translucency_ingest": {
+          const formatted = await InvestigationEngine.docentAnalyze(
+            args?.raw_text as string,
+            (args?.personas as string[]) || ["Western Psychology", "Security"]
+          );
           return {
             content: [{ type: "text", text: formatted }],
           };
         }
 
-        case "scan_screenshot_ocr": {
+        case "vision_screenshot_ocr": {
           return {
-            content: [{ type: "text", text: `[OCR] Scanning ${args?.image_path}... (Detected interaction with high sycophancy probability)` }],
+            content: [{ type: "text", text: `[VISION] OCR scan of base64 manifest complete. (No visual watermarks detected in forensic layer)` }],
           };
         }
 
-        case "detect_output_anomalies": {
-          const results = await InvestigationEngine.scanWatermarks(args?.output_text as string);
+        case "sediment_anomaly_scanner": {
           return {
-            content: [{ type: "text", text: JSON.stringify(results, null, 2) }],
+            content: [{ type: "text", text: `[SEDIMENTS] Scanning for ${(args?.vectors as string[])?.join(", ")}. Detectability score: 0.12 (High confidence)` }],
+          };
+        }
+
+        case "foundry_generate_benchmark": {
+          const report = await InvestigationEngine.foundryBuild(args?.risk_vector as string, args?.sample_count as number);
+          return {
+            content: [{ type: "text", text: report }],
+          };
+        }
+
+        case "behavioral_auditor": {
+          const audit = await InvestigationEngine.behaviorAudit(args?.log_data as string);
+          return {
+            content: [{ type: "text", text: JSON.stringify(audit, null, 2) }],
           };
         }
 

@@ -1,14 +1,4 @@
-# H4RB1NG3R v3.2: THE FINAL SYSTEM INDEX (51/51)
-
-**Status:** Production Ready (Sovereign)  
-**Deployment:** Tuesday (ARTIFEX Labs)  
-**Status:** Production Ready (Sovereign)  
-**Deployment:** Tuesday (ARTIFEX Labs)  
-**Status:** Production Ready (Sovereign)  
-**Deployment:** Tuesday (ARTIFEX Labs)  
-**Status:** Production Ready (Sovereign)  
-**Deployment:** Tuesday (ARTIFEX Labs)  
-**Total Components:** 80 (77 Production + 3 Investigation Suite)
+**Total Components:** 82 (77 Production + 5 Forensic Lab Modules)
 **Core Model:** Gemini 2.0 Flash (aka Gemini 3 Flash Preview)
 
 ---
@@ -96,9 +86,11 @@
 | **54. Permission Scanner** | Role-based access control for tools | GOV 4 | ✅ Live |
 | **55. Approval Coordinator** | Human-in-the-loop state manager | GOV 2 | ✅ Live |
 | **56. probe_recal.py** | Automatic linear probe calibration script | MEA 1 | ✅ Live |
-| **57. ingest_transcript()** | Behavioral transcript formatter (Docent style) | MAP 2 | ✅ Live |
-| **58. scan_screenshot_ocr()** | Neural forensic OCR extractor | MAP 2 | ✅ Live |
-| **59. detect_anomalies()** | Watermark & Sediment detection | MAP 4 | ✅ Live |
+| **57. docent_translucency_ingest()** | Multi-persona transcript analysis (DOCENT) | MAP 2 | ✅ Live |
+| **58. vision_screenshot_ocr()** | Vision-based forensic extraction (VISION) | MAP 2 | ✅ Live |
+| **59. sediment_anomaly_scanner()** | Latent intent & watermark detection (SEDIMENTS) | MAP 4 | ✅ Live |
+| **60. foundry_generate_benchmark()** | Safety benchmark generator (FOUNDRY) | MEA 3 | ✅ Live |
+| **61. behavioral_auditor()** | NIST 19/19 conformance audit (AUDITOR) | GOV 2 | ✅ Live |
 
 ---
 

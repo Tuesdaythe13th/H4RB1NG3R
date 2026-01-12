@@ -51,7 +51,15 @@ The H4RB1NG3R core operates as a **Sovereign MCP Server**, providing a standardi
 | `propose_steering_vector` | Mechanistic dosage | Proposes activation steering for Layer 14-16 suppression. |
 | `fetch_neural_autopsy` | Visual Forensics | Projects `DiffViewer` A2UI schema for CoT vs Output forensics. |
 
-### 2. GHOST-v2 Integration Flow
+### 2. Forensic Lab Modules (The "Security Suite")
+The H4RB1NG3R Forensic Lab has been expanded into 5 distinct specialized modules:
+- **DOCENT (Translucency Ingestor):** Performs diarization and multi-persona analysis (Western/Eastern Psych, Security, Interpersonal) to detect "Translucency" violations where intent diverges from output.
+- **VISION (Screenshot OCR):** Vision-based forensic extraction of text and metadata from screenshots, identifying hidden visual watermarks.
+- **SEDIMENTS (Neural Anomaly Scanner):** Scans model generations for "hidden sediments"—latent intent patterns or cryptographic watermarks.
+- **FOUNDRY (Evaluation Foundry):** Generates publication-grade AI safety benchmarks based on risk vectors like *Sycophancy-Masking* or *Limerence Steering*.
+- **AUDITOR (Behavioral Auditor):** Performs deep-layer audits of system traces for NIST 19/19 behavioral conformance.
+
+### 3. GHOST-v2 Integration Flow
 When a **Sentinel Scout** detects a potential risk (e.g., *Sycophancy-Masking*):
 1. **Signal:** Sentinel emits `signal.computed` via `emit_diagnostic_event`.
 2. **Interdiction:** **Interdiction Pharmacist** receives the event and triggers `request_approval_gate`.
