@@ -1,9 +1,10 @@
-
 /**
  * Agent CO-1: Console Orchestrator
  *
  * Manages multi-view console rendering and role-aware UI orchestration.
  * Routes requests to appropriate views based on user role and context.
+ */
+ */
 /**
  * Console Orchestrator
  * Function: Event Coordination
@@ -228,7 +229,10 @@ export const ConsoleOrchestrator: Agent = {
                 recommendation: "RENDER_VIEW"
             }
         };
-    }
+  },
+  },
+};
+
 export const consoleOrchestrator: Agent = {
   name: "Console Orchestrator",
   id: "agent-console-orchestrator",

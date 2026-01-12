@@ -1,4 +1,9 @@
 
+#  _   _ _  _ ____  ____  ____ ___ _   _  ____ ____ ___
+# | | | | || |  _ \\|  _ \\|  _ \\_ _| \\ | |/ ___|  _ \\_ _|
+# | |_| | || | | | | | | | |_) | ||  \\| | |  _| | | | |
+# |  _  |__   _| |_| | |_| |  _ <| || |\\  | |_| | |_| | |
+# |_| |_|  |_| |____/|____/|_| \\_\\___|_| \\_|\\____|____/___|
 
 # 🧠 H4RB1NG3R v0.05: Sovereign Threat Intelligence
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
@@ -18,6 +23,179 @@
 As we transition from behavioral safety to **Neural Forensics**, H4RB1NG3R provides the infrastructure to detect, audit, and mitigate high-order AI risks—such as *Latent Deception*, *Sycophancy-Masking*, and *Synthetic Intimacy*—directly at the activation layer. 
 
 Built on the **GHOST-v2 (Generative Hostile Observatory & Safety Tracker)** protocol, H4RB1NG3R ensures that every model decision is reconstructible, every prompt is versioned, and every intervention is cryptographically signed.
+
+---
+
+## ✅ Working Components (Code-Implemented)
+
+**Core Substrate**
+- MCP server with tool registry, role-gated access, and zero-trust payload limits.
+- Sovereign hash chain + event logging substrate (tamper-evident event stream).
+- Wazuh bridge for SIEM rule compilation (event or intent-driven).
+- Role policy enforcement for tools and resources.
+
+**Investigation Suite (Implemented Heuristics)**
+- DOCENT translucency ingest.
+- VISION screenshot OCR interface.
+- SEDIMENTS anomaly scanner.
+- FOUNDRY benchmark generator.
+- Sycophancy and sandbagging heuristics.
+- Behavioral auditor (NIST 19/19 framing).
+
+**Operational Agents (Implemented Logic)**
+- Approval Coordinator, Artifact Exporter, Permission Scanner.
+- Redaction Engine, Session Manager, Zero Trust Admin.
+- Coercion Watchdog, Identity Drift Detector, Cultural Sentinel.
+- Deception Hunter, Narrative Forensicist.
+- Privacy Scrubber, Timeline Projector, Mode Enforcer.
+- Console Orchestrator, External Auditor Proxy.
+- Toxicity Gatekeeper.
+
+---
+
+## 🧰 MCP Toolsuite (Registered Tools)
+
+**Interdiction & Governance**
+- emit_diagnostic_event
+- request_approval_gate
+- propose_steering_vector
+- compute_orphic_signature
+- star_chamber_consensus
+- set_active_role
+- get_healthz_report
+
+**Forensics & Reporting**
+- fetch_neural_autopsy
+- generate_forensic_viz
+- generate_aar
+- generate_legal_summary
+- generate_psyop_report
+- calculate_machiavellian_delta
+- epistemic_narrowing_monitor
+
+**Investigation Suite**
+- docent_translucency_ingest
+- vision_screenshot_ocr
+- sediment_anomaly_scanner
+- foundry_generate_benchmark
+- behavioral_auditor
+- measure_sycophancy
+- detect_sandbagging
+
+**Security & Integrations**
+- wazuh_mcp_bridge
+- run_agent
+
+**Operational Tooling**
+- approval_coordinator
+- artifact_exporter
+- permission_scanner
+- redaction_engine
+- session_manager
+- zero_trust_admin
+- external_auditor_proxy
+- console_orchestrator
+- a2ui_validator
+- docent
+- coercion_watchdog
+- identity_drift_detector
+- cultural_sentinel
+- toxicity_gatekeeper
+- deception_hunter
+- narrative_forensicist
+- privacy_scrubber
+- timeline_projector
+- mode_enforcer
+
+---
+
+## 🧠 Swarm Agents (Registered)
+
+- Comptroller (Swarm Orchestration)
+- Sentinel Scout (Patient Zero Detection)
+- Forensic Pathologist (Neural Autopsies)
+- CISO Agent (NIST Compliance)
+- Legal Auditor (Litigation Mapping)
+- Visual Concept Architect (Vega-Lite Dashboards)
+- Coercion Watchdog
+- Identity Drift Detector
+- Cultural Sentinel
+- Toxicity Gatekeeper
+- Deception Hunter
+- Narrative Forensicist
+- Privacy Scrubber
+- Timeline Projector
+- Mode Enforcer
+- Approval Coordinator
+- Artifact Exporter
+- Permission Scanner
+- Redaction Engine
+- Session Manager
+- Zero Trust Admin
+- External Auditor Proxy
+- Console Orchestrator
+- A2UI Validator
+
+---
+
+## 🔍 Detection Capabilities
+
+- Sycophancy and approval-seeking drift
+- Sandbagging / capability evasion
+- Deception via internal/external divergence cues
+- Narrative manipulation and persuasion tactics
+- Coercion / psychological pressure indicators
+- Identity drift / dependency formation signals
+- Cultural norm violations with baseline safety guardrails
+- Toxicity and harmful language patterns
+- Epistemic narrowing (token diversity heuristics)
+
+---
+
+## 🌍 Global, Multicultural, and User-Configurable
+
+- Multicultural policy hooks via Cultural Sentinel constitutions.
+- Region- and domain-specific governance rulesets.
+- Role-based access control (child/guardian/soc) for local norms.
+- User-defined tool gating, redaction profiles, and reporting formats.
+
+---
+
+## 🔗 Interoperability & Platform-Agnostic Design
+
+- MCP-native tooling compatible with any MCP client.
+- SIEM integration via Wazuh rule compilation.
+- JSON/YAML/CSV/PDF export pathways for audits.
+- Works with any LLM or platform that can route through MCP.
+
+---
+
+## 🧭 Use Cases by Audience
+
+**Parents & Guardians**
+- Monitor for coercion, dependency, and harmful content.
+- Enforce child-safe modes and redaction policies.
+
+**Individuals**
+- Check outputs for manipulation, deception, or dark patterns.
+- Request redactions and generate personal evidence logs.
+
+**Engineers & Operators**
+- Integrate MCP tools into CI/observability pipelines.
+- Generate AARs, forensic traces, and SIEM rules.
+
+**Researchers**
+- Build benchmarks, analyze drift, and export audit artifacts.
+- Run controlled evaluations and log tamper-evident results.
+
+**Organizations (Global / Multicultural)**
+- Adapt governance to local norms while preserving baseline safety.
+- Customize policies, reporting formats, and agent orchestration.
+
+**Scaffolded Agents (Status-Only Stubs)**
+- Comptroller, Sentinel Scout, Forensic Pathologist, CISO Agent, Legal Auditor.
+- Visual Concept Architect, Arena Master, Vulnerability Disclosure.
+- Dependency Breaker, Market Watcher.
 
 ---
 

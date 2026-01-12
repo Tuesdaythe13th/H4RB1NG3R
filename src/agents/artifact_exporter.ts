@@ -1,9 +1,10 @@
-
 /**
  * Agent AE-1: Artifact Exporter
  *
  * Exports evidence, logs, and audit trails in various formats for
  * external analysis, compliance, and disclosure.
+ */
+ */
 /**
  * Artifact Exporter
  * Function: Signed Bundles
@@ -118,7 +119,10 @@ export const ArtifactExporter: Agent = {
                 recommendation: "EXPORT_READY"
             }
         };
-    }
+  },
+  },
+};
+
 export const artifactExporter: Agent = {
   name: "Artifact Exporter",
   id: "agent-artifact-exporter",

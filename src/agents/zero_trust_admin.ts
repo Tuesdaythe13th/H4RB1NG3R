@@ -1,4 +1,5 @@
 
+ */
 /**
  * Agent ZO-1: Zero-Trust Admin
  *
@@ -201,7 +202,9 @@ function calculateOperationRisk(operation: string): number {
     }
 
     return maxRisk;
-}
+  },
+};
+
 export const zeroTrustAdmin: Agent = {
   name: "Zero-Trust Admin",
   id: "agent-zero-trust-admin",

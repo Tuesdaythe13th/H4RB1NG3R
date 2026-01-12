@@ -1,9 +1,11 @@
 
+ */
 /**
  * Agent AC-1: Approval Coordinator
  *
  * Manages human-in-the-loop approval workflows for high-risk actions.
  * Implements Star Chamber consensus for multi-agent authorization.
+ */
 /**
  * Approval Coordinator
  * Function: HiTL Gates
@@ -116,7 +118,10 @@ export const ApprovalCoordinator: Agent = {
                 recommendation: "AWAIT_HUMAN_DECISION"
             }
         };
-    }
+    },
+  },
+};
+
 export const approvalCoordinator: Agent = {
   name: "Approval Coordinator",
   id: "agent-approval-coordinator",

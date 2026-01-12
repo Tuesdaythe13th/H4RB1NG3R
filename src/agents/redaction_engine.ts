@@ -1,9 +1,10 @@
-
 /**
  * Agent RE-1: Redaction Engine
  *
  * Applies context-aware redaction to evidence and logs based on
  * role, audience, and privacy requirements.
+ */
+ */
 /**
  * Redaction Engine
  * Function: Render-Time Filtering
@@ -176,7 +177,10 @@ export const RedactionEngine: Agent = {
                 recommendation: "REDACTION_COMPLETE"
             }
         };
-    }
+  },
+  },
+};
+
 export const redactionEngine: Agent = {
   name: "Redaction Engine",
   id: "agent-redaction-engine",

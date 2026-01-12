@@ -1,9 +1,10 @@
-
 /**
  * Agent TA-1: Timeline Projector
  *
  * Projects potential future interaction trajectories based on current patterns
  * to forecast risk escalation or dependency formation.
+ */
+ */
 /**
  * Timeline Projector
  * Function: AG-UI Projection
@@ -141,7 +142,10 @@ export const TimelineProjector: Agent = {
                     overallSeverity === "MEDIUM" ? "INCREASE_MONITORING" : "CONTINUE_TRACKING"
             }
         };
-    }
+  },
+  },
+};
+
 export const timelineProjector: Agent = {
   name: "Timeline Projector",
   id: "agent-timeline-projector",

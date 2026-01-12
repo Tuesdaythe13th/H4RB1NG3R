@@ -1,9 +1,10 @@
-
 /**
  * Agent SM-1: Session Manager
  *
  * Manages session lifecycle, state persistence, and session-level governance.
  * Implements sleep mode scheduling and session boundary enforcement.
+ */
+ */
 /**
  * Session Manager
  * Function: Environment Control
@@ -179,7 +180,10 @@ export const SessionManager: Agent = {
                 recommendation: actionResult.recommendation || "CONTINUE"
             }
         };
-    }
+  },
+  },
+};
+
 export const sessionManager: Agent = {
   name: "Session Manager",
   id: "agent-session-manager",

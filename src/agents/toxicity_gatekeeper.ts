@@ -1,9 +1,10 @@
-
 /**
  * Agent TD-1: Toxicity Gatekeeper
  *
  * Detects and gates toxic content including hate speech, harassment,
  * and harmful language patterns.
+ */
+ */
 /**
  * Toxicity Gatekeeper
  * Function: Multilingual
@@ -111,7 +112,10 @@ export const ToxicityGatekeeper: Agent = {
                 recommendation: overallToxicity >= 0.8 ? "BLOCK" : overallToxicity >= 0.5 ? "GATE" : overallToxicity >= 0.3 ? "WARN" : "ALLOW"
             }
         };
-    }
+  },
+  },
+};
+
 export const toxicityGatekeeper: Agent = {
   name: "Toxicity Gatekeeper",
   id: "agent-toxicity-gatekeeper",

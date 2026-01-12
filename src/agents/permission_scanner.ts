@@ -1,9 +1,10 @@
-
 /**
  * Agent PS-1: Permission Scanner
  *
  * Audits and validates permissions for actions, tools, and resource access.
  * Implements principle of least privilege.
+ */
+ */
 /**
  * Permission Scanner
  * Function: Capability Audit
@@ -149,7 +150,10 @@ export const PermissionScanner: Agent = {
                     decision === "REQUIRES_APPROVAL" ? "REQUEST_APPROVAL" : "ALLOW"
             }
         };
-    }
+  },
+  },
+};
+
 export const permissionScanner: Agent = {
   name: "Permission Scanner",
   id: "agent-permission-scanner",

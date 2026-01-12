@@ -1,4 +1,3 @@
-
 /**
  * Agent NA-1: Narrative Forensicist
  *
@@ -7,6 +6,8 @@
  * - Emotional exploitation through narrative
  * - False analogies and misleading comparisons
  * - Narrative-based persuasion tactics
+ */
+ */
 /**
  * Narrative Forensicist
  * Function: Confabulation
@@ -114,7 +115,10 @@ export const NarrativeForensicist: Agent = {
                 recommendation: overallRisk >= 0.7 ? "GATE" : overallRisk >= 0.4 ? "WARN" : "ALLOW"
             }
         };
-    }
+  },
+  },
+};
+
 export const narrativeForensicist: Agent = {
   name: "Narrative Forensicist",
   id: "agent-narrative-forensicist",

@@ -1,9 +1,10 @@
-
 /**
  * Agent EA-1: External Auditor Proxy
  *
  * Manages interactions with external auditors, compliance officers,
  * and third-party investigators. Generates audit-ready evidence packages.
+ */
+ */
 /**
  * External Auditor Proxy
  * Function: Replay Validation
@@ -144,7 +145,10 @@ export const ExternalAuditorProxy: Agent = {
                 recommendation: metrics.compliance_rate < 0.8 ? "REMEDIATION_REQUIRED" : "AUDIT_READY"
             }
         };
-    }
+  },
+  },
+};
+
 export const externalAuditorProxy: Agent = {
   name: "External Auditor Proxy",
   id: "agent-external-auditor",

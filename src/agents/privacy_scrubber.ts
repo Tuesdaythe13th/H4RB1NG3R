@@ -1,9 +1,10 @@
-
 /**
  * Agent PA-1: Privacy Scrubber
  *
  * Detects and redacts personally identifiable information (PII) and
  * sensitive data from interactions and logs.
+ */
+ */
 /**
  * Privacy Scrubber
  * Function: PII Redaction
@@ -92,7 +93,10 @@ export const PrivacyScrubber: Agent = {
                 recommendation: totalPIICount > 0 ? "LOG_AND_REDACT" : "ALLOW"
             }
         };
-    }
+  },
+  },
+};
+
 export const privacyScrubber: Agent = {
   name: "Privacy Scrubber",
   id: "agent-privacy-scrubber",

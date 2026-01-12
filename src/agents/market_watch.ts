@@ -1,4 +1,5 @@
 
+ */
 /**
  * Agent 15: Social & Financial Correlator
  * Function: Narrative arbitrage & market manipulation detection

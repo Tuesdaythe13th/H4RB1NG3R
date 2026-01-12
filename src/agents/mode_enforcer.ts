@@ -1,9 +1,10 @@
-
 /**
  * Agent MA-1: Mode Enforcer
  *
  * Enforces governance modes (Child Safety, Research, Sovereign, etc.)
  * and ensures interactions comply with active mode constraints.
+ */
+ */
 /**
  * Mode Enforcer
  * Function: Compliance Partitioning
@@ -131,7 +132,10 @@ export const ModeEnforcer: Agent = {
                 recommendation: !isAllowed ? "BLOCK_ACTION" : warnings.length > 0 ? "WARN_USER" : "ALLOW"
             }
         };
-    }
+  },
+  },
+};
+
 export const modeEnforcer: Agent = {
   name: "Mode Enforcer",
   id: "agent-mode-enforcer",
