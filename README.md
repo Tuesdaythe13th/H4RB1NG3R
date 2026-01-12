@@ -1,4 +1,5 @@
 
+
 # 🧠 H4RB1NG3R v0.05: Sovereign Threat Intelligence
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
 
@@ -204,11 +205,11 @@ The repository currently provides the fundamental substrate but requires signifi
 - [x] **Governance Skeleton:** Initialized key documentation files (Charter, NIST Report, Policy Gate).
 - [x] **Critical Agent Stubs:** Initialized logic stubs for Sentinel Scout, Forensic Pathologist, CISO, and Legal Auditor.
 
-**Remaining Gaps:**
-- [ ] Logic implementations for 18 additional agents.
-- [ ] Functional codebase for 22 core safety functions (e.g., `detect_sandbagging`, `measure_sycophancy`).
-- [ ] Full A2UI Widget catalog (10/10 widgets).
-- [ ] Real-time event log synchronization with a live dashboard.
+**Remaining Gaps (validated vs current codebase):**
+- [ ] Complete implementation coverage for all remaining agents not yet wired into the MCP registry.
+- [ ] Expand the core safety function library beyond the currently implemented `detect_sandbagging` and `measure_sycophancy` routines.
+- [ ] Full A2UI Widget catalog (10/10 widgets) beyond the existing Dashboard/Agents/Forensics/Sentinel/Security Suite views.
+- [ ] Real-time event log synchronization between the AG-UI event stream and a live dashboard.
 
 ---
 
