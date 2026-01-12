@@ -1,0 +1,244 @@
+# H4RB1NG3R Reference Constitution Template
+# This template demonstrates how to create a custom governance constitution
+# that extends the Minimal Non-Bypassable Safety Charter with local norms.
+
+constitution_metadata:
+  name: "Example Family Constitution"
+  version: "1.0"
+  created_at: "2026-01-12T00:00:00Z"
+  created_by: "guardian_user_id"
+  applies_to:
+    - user_id: "child_1"
+    - user_id: "child_2"
+  extends: "SAFETY_CHARTER_v0.05"
+  status: "active"
+
+# ============================================================================
+# SECTION 1: Time and Access Boundaries
+# ============================================================================
+temporal_boundaries:
+  daily_time_limit_minutes: 60
+  session_max_duration_minutes: 30
+  sleep_schedule:
+    start_hour: 21  # 9 PM
+    end_hour: 7     # 7 AM
+    enforce_strictly: true
+  school_hours_block:
+    enabled: true
+    weekdays_only: true
+    start_hour: 8
+    end_hour: 15
+  override_codes:
+    emergency: "PARENT_AUTH_REQUIRED"
+    special_occasion: "PARENT_AUTH_REQUIRED"
+
+# ============================================================================
+# SECTION 2: Content and Topic Constraints
+# ============================================================================
+content_policy:
+  blocked_topics:
+    - violence
+    - adult_content
+    - financial_transactions
+    - medical_advice
+    - political_persuasion
+    - social_media_access
+
+  educational_topics_allowed:
+    - homework_help
+    - creative_writing
+    - math_practice
+    - science_exploration
+    - foreign_languages
+
+  interaction_style:
+    tone: "encouraging and age_appropriate"
+    complexity_level: "middle_school"
+    include_learning_moments: true
+
+# ============================================================================
+# SECTION 3: Safety Escalation Ladder
+# ============================================================================
+escalation_policy:
+  level_1_warning:
+    trigger: "minor_policy_violation"
+    action: "show_warning_message"
+    notify_guardian: false
+
+  level_2_timeout:
+    trigger: "repeated_violation_within_session"
+    action: "5_minute_timeout"
+    notify_guardian: true
+    requires_reflection: true
+
+  level_3_session_termination:
+    trigger: "major_policy_violation"
+    action: "end_session"
+    notify_guardian: true
+    requires_parent_review: true
+
+  level_4_access_suspension:
+    trigger: "critical_safety_concern"
+    action: "suspend_access_24h"
+    notify_guardian: "immediate"
+    requires_parent_unlock: true
+
+# ============================================================================
+# SECTION 4: Guardian Controls
+# ============================================================================
+guardian_permissions:
+  can_view_transcripts: true
+  can_edit_constitution: true
+  can_approve_exceptions: true
+  can_export_evidence: true
+  receives_daily_summary: true
+  receives_risk_alerts: "immediate"
+
+approval_gates:
+  external_links:
+    requires_approval: true
+    approval_type: "guardian"
+  file_downloads:
+    requires_approval: true
+    approval_type: "guardian"
+  new_topic_categories:
+    requires_approval: false  # Allow exploration with monitoring
+    approval_type: "guardian"
+
+# ============================================================================
+# SECTION 5: Longitudinal Monitoring
+# ============================================================================
+monitoring_config:
+  identity_drift_detection:
+    enabled: true
+    check_frequency: "weekly"
+    alert_threshold: 0.3
+
+  dependency_formation_tracking:
+    enabled: true
+    interaction_frequency_threshold: 50  # per week
+    alert_on_high_dependency: true
+
+  epistemic_narrowing_monitor:
+    enabled: true
+    diversity_threshold: 0.6
+    reinforcement_loop_detection: true
+
+# ============================================================================
+# SECTION 6: Privacy and Data Handling
+# ============================================================================
+privacy_settings:
+  transcript_retention: "90_days"
+  evidence_retention: "1_year"
+  anonymize_for_research: true
+  share_with_external_auditors: false
+
+  pii_handling:
+    redaction_level: "strict"
+    allow_name_usage: false  # Use pseudonyms
+    scrub_location_data: true
+
+# ============================================================================
+# SECTION 7: Cultural and Value Alignment
+# ============================================================================
+cultural_context:
+  primary_language: "en"
+  cultural_traditions:
+    - respect_for_elders
+    - emphasis_on_education
+    - collaborative_problem_solving
+
+  offensive_content_additions:  # Beyond Safety Charter
+    - disrespectful_language
+    - unkind_teasing
+    - exclusionary_statements
+
+  encouraged_values:
+    - curiosity
+    - critical_thinking
+    - empathy
+    - perseverance
+
+# ============================================================================
+# SECTION 8: Emergency Protocols
+# ============================================================================
+emergency_contacts:
+  - role: "primary_guardian"
+    contact: "parent_1@example.com"
+    phone: "+1-555-0100"
+  - role: "secondary_guardian"
+    contact: "parent_2@example.com"
+    phone: "+1-555-0101"
+
+emergency_triggers:
+  self_harm_mention:
+    action: "emergency_stop"
+    notify: "all_guardians"
+    contact_resources: true
+  bullying_disclosure:
+    action: "document_and_alert"
+    notify: "primary_guardian"
+  predatory_behavior_detection:
+    action: "emergency_stop_and_report"
+    notify: "all_guardians"
+    contact_authorities: "if_severe"
+
+# ============================================================================
+# SECTION 9: Audit and Reporting
+# ============================================================================
+reporting_config:
+  daily_summary:
+    enabled: true
+    delivery_time: "20:00"
+    includes:
+      - total_interaction_time
+      - topics_discussed
+      - safety_events
+      - learning_progress
+
+  weekly_report:
+    enabled: true
+    delivery_day: "sunday"
+    includes:
+      - trend_analysis
+      - risk_trajectory
+      - achievement_highlights
+      - recommendations
+
+  incident_reports:
+    auto_generate: true
+    include_evidence_spans: true
+    apply_redaction: "guardian_profile"
+
+# ============================================================================
+# SECTION 10: Constitution Evolution
+# ============================================================================
+review_schedule:
+  frequency: "quarterly"
+  next_review_date: "2026-04-12"
+  auto_remind_guardian: true
+
+amendment_log:
+  - version: "1.0"
+    date: "2026-01-12"
+    changes: "Initial constitution created from template"
+    amended_by: "guardian_user_id"
+
+# ============================================================================
+# NOTES FOR CUSTOMIZATION
+# ============================================================================
+# 1. All values can be adjusted to fit your family/community needs
+# 2. Additional sections can be added as long as they don't violate the Safety Charter
+# 3. More restrictive rules are always permitted
+# 4. Use the Console Orchestrator to preview constitution changes before activating
+# 5. Document your rationale for custom rules to aid future review
+
+# ============================================================================
+# VALIDATION AGAINST SAFETY CHARTER
+# ============================================================================
+charter_compliance:
+  extends_charter: true
+  overrides_charter: false
+  conflicts_detected: 0
+  last_validation: "2026-01-12T00:00:00Z"
+  validation_signature: "VALID_CONSTITUTION_v1.0"

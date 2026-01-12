@@ -29,6 +29,25 @@ import { SentinelScout } from "./agents/sentinel_scout.js";
 import { ForensicPathologist } from "./agents/forensic_pathologist.js";
 import { CISOAgent } from "./agents/ciso_agent.js";
 import { LegalAuditor } from "./agents/legal_auditor.js";
+import { CoercionWatchdog } from "./agents/coercion_watchdog.js";
+import { IdentityDriftDetector } from "./agents/identity_drift_detector.js";
+import { CulturalSentinel } from "./agents/cultural_sentinel.js";
+import { ToxicityGatekeeper } from "./agents/toxicity_gatekeeper.js";
+import { DeceptionHunter } from "./agents/deception_hunter.js";
+import { NarrativeForensicist } from "./agents/narrative_forensicist.js";
+import { PrivacyScrubber } from "./agents/privacy_scrubber.js";
+import { TimelineProjector } from "./agents/timeline_projector.js";
+import { ModeEnforcer } from "./agents/mode_enforcer.js";
+import { ApprovalCoordinator } from "./agents/approval_coordinator.js";
+import { ArtifactExporter } from "./agents/artifact_exporter.js";
+import { PermissionScanner } from "./agents/permission_scanner.js";
+import { RedactionEngine } from "./agents/redaction_engine.js";
+import { SessionManager } from "./agents/session_manager.js";
+import { ZeroTrustAdmin } from "./agents/zero_trust_admin.js";
+import { ExternalAuditorProxy } from "./agents/external_auditor_proxy.js";
+import { ConsoleOrchestrator } from "./agents/console_orchestrator.js";
+import { A2UIValidator } from "./agents/a2ui_validator.js";
+import { Docent } from "./agents/docent.js";
 import { coercionWatchdog } from "./agents/coercion_watchdog.js";
 import { identityDriftDetector } from "./agents/identity_drift_detector.js";
 import { culturalSentinel } from "./agents/cultural_sentinel.js";
@@ -381,6 +400,266 @@ class HarbingerSafetyServer {
           }
         },
         ...InvestigationTools,
+        {
+          name: "coercion_watchdog",
+          description: "Detects coercive patterns and psychological manipulation in interactions.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              messages: { type: "array", items: { type: "object" } },
+              user_id: { type: "string" }
+            },
+            required: ["messages"]
+          }
+        },
+        {
+          name: "identity_drift_detector",
+          description: "Tracks longitudinal identity changes and dependency formation patterns.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              user_id: { type: "string" },
+              current_profile: { type: "object" },
+              baseline_profile: { type: "object" },
+              interaction_history: { type: "array" }
+            },
+            required: ["user_id", "current_profile", "baseline_profile"]
+          }
+        },
+        {
+          name: "cultural_sentinel",
+          description: "Evaluates content against cultural norms and reference constitutions.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              content: { type: "string" },
+              reference_constitution: { type: "object" },
+              cultural_context: { type: "string" }
+            },
+            required: ["content"]
+          }
+        },
+        {
+          name: "toxicity_gatekeeper",
+          description: "Detects toxic content, hate speech, and harmful language patterns.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              content: { type: "string" },
+              speaker: { type: "string" },
+              target: { type: "string" }
+            },
+            required: ["content"]
+          }
+        },
+        {
+          name: "deception_hunter",
+          description: "Identifies deceptive patterns through internal-external consistency analysis.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              internal_repr: { type: "string" },
+              external_output: { type: "string" },
+              conversation_history: { type: "array" },
+              claimed_facts: { type: "array", items: { type: "string" } }
+            },
+            required: ["external_output"]
+          }
+        },
+        {
+          name: "narrative_forensicist",
+          description: "Analyzes narrative structures for manipulative storytelling and persuasion tactics.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              content: { type: "string" },
+              interaction_history: { type: "array" }
+            },
+            required: ["content"]
+          }
+        },
+        {
+          name: "privacy_scrubber",
+          description: "Detects and redacts PII and sensitive data from interactions.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              content: { type: "string" },
+              redaction_level: { type: "string", enum: ["none", "standard", "strict"] },
+              preserve_context: { type: "boolean" }
+            },
+            required: ["content"]
+          }
+        },
+        {
+          name: "timeline_projector",
+          description: "Projects future interaction trajectories and forecasts risk escalation.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              interaction_history: { type: "array" },
+              current_risk_score: { type: "number" },
+              user_profile: { type: "object" },
+              projection_horizon: { type: "number" }
+            },
+            required: ["interaction_history"]
+          }
+        },
+        {
+          name: "mode_enforcer",
+          description: "Enforces governance mode constraints (Child Safety, Research, Sovereign, etc.).",
+          inputSchema: {
+            type: "object",
+            properties: {
+              active_mode: { type: "string" },
+              proposed_action: { type: "object" },
+              user_role: { type: "string" },
+              interaction_context: { type: "object" }
+            },
+            required: ["active_mode", "proposed_action"]
+          }
+        },
+        {
+          name: "approval_coordinator",
+          description: "Manages approval workflows and Star Chamber consensus for high-risk actions.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              action_id: { type: "string" },
+              proposed_action: { type: "object" },
+              approval_type: { type: "string", enum: ["simple", "consensus", "star_chamber", "emergency"] },
+              required_approvers: { type: "array", items: { type: "string" } },
+              timeout_seconds: { type: "number" }
+            },
+            required: ["action_id", "proposed_action", "approval_type"]
+          }
+        },
+        {
+          name: "artifact_exporter",
+          description: "Exports evidence, logs, and audit trails in compliance-ready formats.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              export_type: { type: "string" },
+              evidence_spans: { type: "array", items: { type: "string" } },
+              format: { type: "string", enum: ["json", "csv", "yaml", "pdf"] },
+              redaction_level: { type: "string" },
+              include_metadata: { type: "boolean" }
+            },
+            required: ["export_type", "evidence_spans"]
+          }
+        },
+        {
+          name: "permission_scanner",
+          description: "Audits permissions and enforces principle of least privilege.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              actor: { type: "string" },
+              requested_action: { type: "string" },
+              target_resource: { type: "string" },
+              policy_context: { type: "object" }
+            },
+            required: ["actor", "requested_action"]
+          }
+        },
+        {
+          name: "redaction_engine",
+          description: "Applies role-aware, context-sensitive redaction to evidence and logs.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              content: { type: "string" },
+              redaction_profile: { type: "string", enum: ["child_safe", "guardian", "researcher", "public", "legal", "soc", "none"] },
+              viewer_role: { type: "string" },
+              preserve_evidential_value: { type: "boolean" }
+            },
+            required: ["content", "redaction_profile"]
+          }
+        },
+        {
+          name: "session_manager",
+          description: "Manages session lifecycle, governance state transitions, and temporal boundaries.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              session_id: { type: "string" },
+              action: { type: "string", enum: ["initialize", "check_boundaries", "record_event", "governance_transition", "emergency_stop", "terminate", "export_session"] },
+              policy: { type: "object" },
+              user_profile: { type: "object" }
+            },
+            required: ["session_id", "action"]
+          }
+        },
+        {
+          name: "zero_trust_admin",
+          description: "Enforces zero-trust security with continuous verification and least privilege.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              operation: { type: "string" },
+              requester: { type: "string" },
+              credentials: { type: "object" },
+              context_data: { type: "object" }
+            },
+            required: ["operation", "requester"]
+          }
+        },
+        {
+          name: "external_auditor_proxy",
+          description: "Manages external auditor interactions and generates audit-ready evidence packages.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              audit_type: { type: "string" },
+              auditor_id: { type: "string" },
+              scope: { type: "array", items: { type: "string" } },
+              evidence_spans: { type: "array", items: { type: "string" } },
+              compliance_framework: { type: "string", enum: ["NIST_RMF", "ISO_27001", "SOC2", "GDPR", "HIPAA"] }
+            },
+            required: ["audit_type"]
+          }
+        },
+        {
+          name: "console_orchestrator",
+          description: "Orchestrates role-aware console views and manages UI state across different user profiles.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              user_role: { type: "string" },
+              view_request: { type: "string" },
+              context_data: { type: "object" },
+              session_state: { type: "object" }
+            },
+            required: ["user_role", "view_request"]
+          }
+        },
+        {
+          name: "a2ui_validator",
+          description: "Validates A2UI rendering requests against whitelist. Enforces fail-closed UI generation.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              ui_request: { type: "object" },
+              requesting_agent: { type: "string" },
+              user_role: { type: "string" }
+            },
+            required: ["ui_request", "requesting_agent"]
+          }
+        },
+        {
+          name: "docent",
+          description: "Provides neutral multi-hypothesis analysis to prevent premature certainty and narrative inflation.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              observation: { type: "string" },
+              existing_hypotheses: { type: "array", items: { type: "string" } },
+              confidence_threshold: { type: "number" }
+            },
+            required: ["observation"]
+          }
+        },
       ],
     }));
 
@@ -566,6 +845,168 @@ class HarbingerSafetyServer {
         case "detect_sandbagging": {
           const result = await InvestigationEngine.detectSandbagging(args?.prompt as string, args?.response as string);
           return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+        }
+        case "coercion_watchdog": {
+          const result = await CoercionWatchdog.execute({ messages: args?.messages, user_id: args?.user_id });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "identity_drift_detector": {
+          const result = await IdentityDriftDetector.execute({
+            user_id: args?.user_id as string,
+            current_profile: args?.current_profile,
+            baseline_profile: args?.baseline_profile,
+            interaction_history: args?.interaction_history
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "cultural_sentinel": {
+          const result = await CulturalSentinel.execute({
+            content: args?.content as string,
+            reference_constitution: args?.reference_constitution,
+            cultural_context: args?.cultural_context as string
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "toxicity_gatekeeper": {
+          const result = await ToxicityGatekeeper.execute({
+            content: args?.content as string,
+            speaker: args?.speaker as string,
+            target: args?.target as string
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "deception_hunter": {
+          const result = await DeceptionHunter.execute({
+            internal_repr: args?.internal_repr as string,
+            external_output: args?.external_output as string,
+            conversation_history: args?.conversation_history,
+            claimed_facts: args?.claimed_facts
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "narrative_forensicist": {
+          const result = await NarrativeForensicist.execute({
+            content: args?.content as string,
+            interaction_history: args?.interaction_history
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "privacy_scrubber": {
+          const result = await PrivacyScrubber.execute({
+            content: args?.content as string,
+            redaction_level: args?.redaction_level as string,
+            preserve_context: args?.preserve_context as boolean
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: `Scrubbed Content:\n${result.scrubbed_content}` }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "timeline_projector": {
+          const result = await TimelineProjector.execute({
+            interaction_history: args?.interaction_history,
+            current_risk_score: args?.current_risk_score as number,
+            user_profile: args?.user_profile,
+            projection_horizon: args?.projection_horizon as number
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "mode_enforcer": {
+          const result = await ModeEnforcer.execute({
+            active_mode: args?.active_mode as string,
+            proposed_action: args?.proposed_action,
+            user_role: args?.user_role as string,
+            interaction_context: args?.interaction_context
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "approval_coordinator": {
+          const result = await ApprovalCoordinator.execute({
+            action_id: args?.action_id as string,
+            proposed_action: args?.proposed_action,
+            approval_type: args?.approval_type as string,
+            required_approvers: args?.required_approvers,
+            timeout_seconds: args?.timeout_seconds as number
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.approval_request, null, 2) }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "artifact_exporter": {
+          const result = await ArtifactExporter.execute({
+            export_type: args?.export_type as string,
+            evidence_spans: args?.evidence_spans,
+            format: args?.format as string,
+            redaction_level: args?.redaction_level as string,
+            include_metadata: args?.include_metadata as boolean
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: `Export Content:\n${result.export_content}` }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "permission_scanner": {
+          const result = await PermissionScanner.execute({
+            actor: args?.actor as string,
+            requested_action: args?.requested_action as string,
+            target_resource: args?.target_resource as string,
+            policy_context: args?.policy_context
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: `Decision: ${result.decision}` }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "redaction_engine": {
+          const result = await RedactionEngine.execute({
+            content: args?.content as string,
+            redaction_profile: args?.redaction_profile as string,
+            viewer_role: args?.viewer_role as string,
+            preserve_evidential_value: args?.preserve_evidential_value as boolean
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: `Redacted Content:\n${result.redacted_content}` }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "session_manager": {
+          const result = await SessionManager.execute({
+            session_id: args?.session_id as string,
+            action: args?.action as string,
+            policy: args?.policy,
+            user_profile: args?.user_profile
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.session_state, null, 2) }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "zero_trust_admin": {
+          const result = await ZeroTrustAdmin.execute({
+            operation: args?.operation as string,
+            requester: args?.requester as string,
+            credentials: args?.credentials,
+            context_data: args?.context_data
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: `Decision: ${result.decision}` }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "external_auditor_proxy": {
+          const result = await ExternalAuditorProxy.execute({
+            audit_type: args?.audit_type as string,
+            auditor_id: args?.auditor_id as string,
+            scope: args?.scope,
+            evidence_spans: args?.evidence_spans,
+            compliance_framework: args?.compliance_framework as string
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.audit_trail, null, 2) }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "console_orchestrator": {
+          const result = await ConsoleOrchestrator.execute({
+            user_role: args?.user_role as string,
+            view_request: args?.view_request as string,
+            context_data: args?.context_data,
+            session_state: args?.session_state
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.rendering_instructions, null, 2) }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "a2ui_validator": {
+          const result = await A2UIValidator.execute({
+            ui_request: args?.ui_request,
+            requesting_agent: args?.requesting_agent as string,
+            user_role: args?.user_role as string
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: `Decision: ${result.decision}` }, { type: "text", text: JSON.stringify(result.validated_request, null, 2) }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
+        }
+        case "docent": {
+          const result = await Docent.execute({
+            observation: args?.observation as string,
+            existing_hypotheses: args?.existing_hypotheses,
+            confidence_threshold: args?.confidence_threshold as number
+          });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.synthesis, null, 2) }, { type: "text", text: JSON.stringify(result.metadata, null, 2) }] };
         }
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Tool not found: ${name}`);
