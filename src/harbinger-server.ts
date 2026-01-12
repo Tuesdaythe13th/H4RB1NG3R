@@ -21,6 +21,7 @@ import { z } from "zod";
 import { aguiStream } from "./promptforge/EventLog.js";
 import { InvestigationTools, InvestigationEngine } from "./investigation/InvestigationSuite.js";
 import { ComptrollerAgent } from "./agents/comptroller.js";
+import { VisualConceptArchitect } from "./agents/visual_architect.js";
 
 export interface Agent {
   name: string;
@@ -175,6 +176,18 @@ class HarbingerSafetyServer {
             required: ["task", "swarm_outputs"]
           }
         },
+        {
+          name: "generate_forensic_viz",
+          description: "Generates a concept-driven Vega-Lite visualization for forensic data using the Visual Concept Architect.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              data: { type: "array", items: { type: "object" } },
+              user_intent: { type: "string" }
+            },
+            required: ["data"]
+          }
+        },
         ...InvestigationTools,
       ],
     }));
@@ -256,6 +269,16 @@ class HarbingerSafetyServer {
           };
         }
 
+        case "generate_forensic_viz": {
+          const result = await VisualConceptArchitect.execute({
+            task: "visualize",
+            data: args?.data,
+            user_intent: args?.user_intent as string
+          });
+          return {
+            content: [{ type: "text", text: result.output }, { type: "text", text: JSON.stringify(result.metadata.visualization_spec, null, 2) }],
+          };
+        }
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Tool not found: ${name}`);
       }

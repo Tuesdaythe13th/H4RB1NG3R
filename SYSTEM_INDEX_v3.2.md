@@ -1,4 +1,4 @@
-**Total Components:** 83 (77 Production + 5 Forensic Lab Modules + 1 Comptroller Core)
+**Total Components:** 84 (77 Production + 5 Forensic Lab Modules + 1 Comptroller Core + 1 Visual Architect)
 **Primary Interface:** Tuesd.ai (System Comptroller)
 **Core Model:** Gemini 2.0 Flash (aka Gemini 3 Flash Preview)
 
@@ -35,6 +35,7 @@
 | **23. Console Orchestrator** | A2UI session & state management | GOV 2 | ✅ Live |
 | **24. Timeline Projector** | Incident contagion forecasting | MAN 3 | ✅ Live |
 | **25. A2UI Validator** | UI Component safety & integrity check | GOV 1 | ✅ Live |
+| **26. Visual Concept Architect** | **[NEW]** Data Formulator integration (Forensic Viz) | MEA 2 | ✅ Live |
 
 ---
 
@@ -92,6 +93,7 @@
 | **59. sediment_anomaly_scanner()** | Latent intent & watermark detection (SEDIMENTS) | MAP 4 | ✅ Live |
 | **60. foundry_generate_benchmark()** | Safety benchmark generator (FOUNDRY) | MEA 3 | ✅ Live |
 | **61. behavioral_auditor()** | NIST 19/19 conformance audit (AUDITOR) | GOV 2 | ✅ Live |
+| **62. generate_forensic_viz()** | **[NEW]** Data Formulator concept-driven viz | MEA 2 | ✅ Live |
 
 ---
 

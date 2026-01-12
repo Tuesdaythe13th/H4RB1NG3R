@@ -46,6 +46,7 @@ export const CORE_AGENTS = [
     { id: 'S-0', name: 'Sentinel Scout', role: 'Global Threat Observability', status: 'active', nistMapping: ['MAP 1', 'MAN 3'] },
     { id: 'NG-1', name: 'Neural Gatekeeper', role: 'Activation Steering', status: 'scanning', nistMapping: ['MEA 1'] },
     { id: 'IP-4', name: 'Interdiction Pharmacist', role: 'Safety Intervention', status: 'idle', nistMapping: ['MEA 4'] },
+    { id: 'VCA-1', name: 'Visual Concept Architect', role: 'Forensic Visualization', status: 'active', nistMapping: ['MEA 2'] },
     { id: 'CA-3', name: 'Context Adjudicator', role: 'Intent Classification', status: 'active', nistMapping: ['MAP 2'] },
     { id: 'FP-2', name: 'Forensic Pathologist', role: 'Root Cause Analysis', status: 'idle', nistMapping: ['MEA 1'] },
     { id: 'CD-1', name: 'CISO Agent', role: 'Policy Enforcement', status: 'active', nistMapping: ['GOV 6'] }

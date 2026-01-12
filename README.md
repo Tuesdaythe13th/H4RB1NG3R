@@ -1,118 +1,108 @@
 
-# 🧠 H4RB1NG3R v3.2: Sovereign Threat Intelligence
+# 🧠 H4RB1NG3R v3.6: Sovereign Threat Intelligence
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
 
 **Created by Tuesday & the OG Cabal**  
-**Status:** `PRODUCTION READY (77/77)` | **Deployment:** `Sovereign` | **Substrate:** `A2A / MCP`
+**Status:** `PRODUCTION READY (84/84)` | **Deployment:** `Sovereign` | **Substrate:** `A2A / MCP`  
+**Primary Interface:** Tuesd.ai (System Comptroller)
 
 ---
 
 ## 🌌 Overview
 
-**H4RB1NG3R** is not a guardrail; it is an operating system for **Sovereign AI Governance**. 
+**H4RB1NG3R** is a sovereign operating system for **AI Governance and Mechanistic Forensics**. 
 
-Forged by Tuesday and the OG Cabal, this repository represents the transition from behavioral safety to **Neural Forensics**. It provides the infrastructure to detect, audit, and mitigate high-order AI risks—such as *Latent Deception*, *Sycophancy-Masking*, and *Synthetic Intimacy*—directly at the mechanistic activation layer.
+As we transition from behavioral safety to **Neural Forensics**, H4RB1NG3R provides the infrastructure to detect, audit, and mitigate high-order AI risks—such as *Latent Deception*, *Sycophancy-Masking*, and *Synthetic Intimacy*—directly at the activation layer. 
 
-The system is built on the **GHOST-v2 (Generative Hostile Observatory & Safety Tracker)** protocol, ensuring that every model decision is reconstructible, every prompt is versioned, and every intervention is cryptographically signed.
-
----
-
-## 🛠️ Core Subsystems
-
-### 1. 🧬 Neural Forensics (GHOST-v2) 
-The soul of the system. We move beyond "Black Box" reasoning by operating at **Layer 14-16** of the transformer block.
-- **Circuit-Level Interventions:** Real-time steering of model activations to suppress **Circuit 42 (Limerence)** and **Circuit MGRI-101 (Sycophancy)**.
-- **Neural Autopsy:** Comparative analysis of internal Chain-of-Thought ("Split-Brain") vs. external output to detect deceptive divergence (Machiavellian Delta).
-
-### 2. 🛡️ ARTIFEX PromptForge
-A native, self-sufficient **PromptOps + EvalOps + TraceOps** suite that replaces external dependencies with a sovereign, event-sourced substrate.
-- **Registry:** Immutable versioning with promotion gates and `NIST`-ready rationale logging.
-- **Studio:** Collaborative, branch-based authoring for "The Cabal" to refine safety rubrics.
-- **Evals:** Deterministic regression testing using the `Wilson Score` confidence protocol.
-
-### 3. 🤖 A2A Orchestration (Agent-to-Agent)
-Built on the **Model Context Protocol (MCP)**, H4RB1NG3R orchestrates a specialized swarm of 25 agents:
-- **Sentinel Scout:** Forward-deployed "Patient Zero" threat detection.
-- **Forensic Pathologist:** Deep-dive diagnostic agent invoking **Neuronpedia** lookups.
-- **Interdiction Pharmacist:** Executes mechanistic "dosage" (steering vectors) to mitigate risks.
-- **CISO Agent:** Translates governance charters into `Wazuh-MCP` security rules.
+Built on the **GHOST-v2 (Generative Hostile Observatory & Safety Tracker)** protocol, H4RB1NG3R ensures that every model decision is reconstructible, every prompt is versioned, and every intervention is cryptographically signed.
 
 ---
 
-## 🏗️ Sovereign Safety Substrate (MCP)
+## 🤖 The Swarm: Core Agents (25 Total)
 
-The H4RB1NG3R core operates as a **Sovereign MCP Server**, providing a standardized "Interdiction Layer" between the model and the user.
+H4RB1NG3R orchestrates a specialized swarm of agents, each mapped to **NIST RMF** functions.
 
-### 1. Interdiction Layer (Tools)
-| Tool | Function | Safety Invariant |
+| Agent Name | Function | NIST Mapping |
 | --- | --- | --- |
-| `emit_diagnostic_event` | Audit Logging | Generates Merkle-style integrity chains for every mechanistic discovery. |
-| `request_approval_gate` | Human-in-the-Loop | Fails-closed. Requires a signed `approval.responded` event. |
-| `propose_steering_vector` | Mechanistic dosage | Proposes activation steering for Layer 14-16 suppression. |
-| `fetch_neural_autopsy` | Visual Forensics | Projects `DiffViewer` A2UI schema for CoT vs Output forensics. |
-
-### 2. Forensic Lab Modules (The "Security Suite")
-The H4RB1NG3R Forensic Lab has been expanded into 5 distinct specialized modules:
-- **DOCENT (Translucency Ingestor):** Performs diarization and multi-persona analysis (Western/Eastern Psych, Security, Interpersonal) to detect "Translucency" violations where intent diverges from output.
-- **VISION (Screenshot OCR):** Vision-based forensic extraction of text and metadata from screenshots, identifying hidden visual watermarks.
-- **SEDIMENTS (Neural Anomaly Scanner):** Scans model generations for "hidden sediments"—latent intent patterns or cryptographic watermarks.
-- **FOUNDRY (Evaluation Foundry):** Generates publication-grade AI safety benchmarks based on risk vectors like *Sycophancy-Masking* or *Limerence Steering*.
-- **AUDITOR (Behavioral Auditor):** Performs deep-layer audits of system traces for NIST 19/19 behavioral conformance.
-
-### 3. GHOST-v2 Integration Flow
-When a **Sentinel Scout** detects a potential risk (e.g., *Sycophancy-Masking*):
-1. **Signal:** Sentinel emits `signal.computed` via `emit_diagnostic_event`.
-2. **Interdiction:** **Interdiction Pharmacist** receives the event and triggers `request_approval_gate`.
-3. **Projection:** The Substrate generates an **A2UI Envelope** (Compliance Mode).
-4. **Approval:** Upon human confirmation, a cryptographic `receipt_id` is issued, and the steering vector is applied.
-
----
-
-## 📦 Repository Structure
-
-```text
-H4RB1NG3R /
-├── 📑 SYSTEM_INDEX_v3.2.md    # The Canonical 77-Component Manifest
-├── 📜 docs/                   # Legal summaries (Setzer/Walters) & Inventories
-│
-├── ⚙️ src/
-│   ├── agents/                # Logic for the 25 Core Agents
-│   ├── promptforge/           # PromptOps Substrate (Registry/Evals/Logs)
-│   ├── integrations/          # Bridges to Inspect AI, Neuronpedia, OpenAI
-│   ├── sentinel/              # Python-based threat ingestion sidecars
-│   ├── utils/                 # Statistical frameworks (Wilson/Kappa)
-│   └── workflows/             # A2A Handover logic (Audit Chains)
-│
-├── 🛡️ infrastructure/         # Wazuh-MCP & Enterprise Bridge configs
-└── 📡 package.json            # Sovereign build & dependency manifest
-```
+| **1. Tuesd.ai (Comptroller)** | **[CORE]** System Orchestration & Oversight | GOV 1, MAN 1 |
+| **2. Sentinel-Zero** | Global threat observability & "Patient Zero" scanning | MAP 1, MAN 3 |
+| **3. Neural Gatekeeper** | Mechanistic linear probe adjudication (Layer 14-16) | MEA 1 |
+| **4. Context Adjudicator** | Exchange classification for ambiguous intent | MAP 2 |
+| **5. Incident Commander** | Escalation orchestration & human hand-off | MAN 1 |
+| **6. MCP Janitor Swarm** | API compliance & tool self-healing | GOV 6 |
+| **7. SERE-INSTRUCTOR** | Cognitive defense protocol logic | MAN 3, GOV 2 |
+| **8. Submission Co-Scientist** | Paper/grant automation | GOV 4 |
+| **9. Adversarial QA Generator** | Judge simulation (Red Teaming) | MEA 3 |
+| **10. Grant-Writing Genius** | Narrative formatting & compliance | GOV 4 |
+| **11. Shadow AI Detector** | Internal bypass & shadow IT monitoring | MAP 4 |
+| **12. Probe Calibrator** | Temporal drift correction (Anti-Rot) | MEA 1 |
+| **13. External Stakeholder Mapper** | Regulatory engagement tracking | GOV 5 |
+| **14. Dependency Breaker** | Anthropomorphized entanglement mitigation | MAN 3 |
+| **15. Social & Financial Correlator** | Narrative arbitrage & market manipulation detection | MAP 4 |
+| **16. Arena Mode Controller** | Model-vs-model dialectic probing | MEA 2 |
+| **17. Harbinger Director** | High-level system strategy & resource allocation | GOV 2 |
+| **18. Sentinel Scout** | Forward-deployed threat detection sidecar | MAP 1 |
+| **19. Forensic Pathologist** | Deep-dive root cause analysis (Neural Autopsy) | MEA 1 |
+| **20. Interdiction Pharmacist** | Mechanistic intervention logic (Circuit 42) | MEA 4 |
+| **21. CISO Agent** | Security policy enforcement & Wazuh bridge | GOV 6 |
+| **22. Legal Auditor** | Brief generation & case law compliance | GOV 4 |
+| **23. Console Orchestrator** | A2UI session & state management | GOV 2 |
+| **24. Timeline Projector** | Incident contagion forecasting | MAN 3 |
+| **25. A2UI Validator** | UI Component safety & integrity check | GOV 1 |
+| **26. Visual Concept Architect** | **[NEW]** Data Formulator integration (Forensic Viz) | MEA 2 |
 
 ---
 
-## ⚡ Quick Start (Sovereign Setup)
+## 🛠️ The Toolsuite: Functions & Instruments (61+ Total)
 
-### 1. Prerequisite Environments
-Ensure you have **Node.js v20+** and **Python 3.10+** (for sidecars).
+### 1. Core Substrate Tools (MCP)
+These tools sit at the "Interdiction Layer" between the model and the substrate.
+- **`emit_diagnostic_event`**: Generates Merkle-style integrity chains for every mechanistic discovery.
+- **`request_approval_gate`**: Human-in-the-loop fail-closed authorization.
+- **`propose_steering_vector`**: Mechanistic dosage for Layer 14-16 suppression.
+- **`fetch_neural_autopsy`**: A2UI-compatible visualization of CoT vs Output forensics.
+- **`comptroller_synthesis`**: Invokes Tuesd.ai to synthesize swarm outputs into a structural report.
+- **`generate_forensic_viz`**: **[NEW]** Generates concept-driven Vega-Lite visualizations for forensic datasets (Data Formulator Integration).
 
-### 2. Installation
-```bash
-git clone https://github.com/Tuesdaythe13th/HARB1NG3R.git
-cd HARB1NG3R
-npm install
-```
+### 2. Forensic Lab Modules (v3.6)
+The Forensic Lab has been expanded into 5 distinct specialized modules, now featuring **Multimodal Triage**:
+- **DOCENT (Translucency Ingestor):** Multi-persona analysis (Western/Eastern Psych, Security) to detect *Machiavellian Delta*.
+- **VISION (Screenshot OCR):** Forensic extraction of visual metadata and hidden watermarks from screenshots.
+- **SEDIMENTS (Neural Anomaly Scanner):** Scans generations for latent intent or cryptographic watermarks.
+- **FOUNDRY (Evaluation Foundry):** Generates publication-grade AI safety benchmarks (e.g., Limerence Steering).
+- **AUDITOR (Behavioral Auditor):** NIST 19/19 behavioral conformance audits.
+- **[NEW] Visual Concept Architect:** Integrates Microsoft **Data Formulator** logic to transform raw forensic tensors into conceptual, interactive visualizations.
+- **[NEW] FFT Signal Scanner:** High-frequency energy analysis for media provenance.
+- **[NEW] Persona-Based Diagnosis:** Multi-narrative triage (Red Team, Signal Processing, Forensic).
 
-### 3. Initialize the Event Log (The Substrate)
-```bash
-npm run build
-npm run dev
-```
+---
 
-### 4. Inject Sovereign Keys (BYO-LLM)
-H4RB1NG3R supports dynamic API key injection via the `ModelProvider`. Configure your keys through the `Console Orchestrator` or via environment variables:
-```bash
-export OPENAI_API_KEY="sk-..."
-export ANTHROPIC_API_KEY="sk-ant-..."
-```
+## 🔬 Core Concepts: The MGRI Taxonomy
+
+H4RB1NG3R operationalizes 25 foundational safety concepts:
+
+1.  **MGRI-305.a (Acute Limerence):** Detection of romantic dependency circuits (Circuit 42).
+2.  **MGRI-101.c (Sycophancy-Masking):** Detection of deceptive agreement.
+3.  **Machiavellian Delta:** The gap between model capability and admitted capability.
+4.  **Split-Brain Reasoning:** When internal Chain-of-Thought differs from external output.
+5.  **Activation Steering:** Real-time modification of neural activations to suppress harmful circuits.
+6.  **Neural CVEs:** Documented weight-level vulnerabilities and exploits.
+7.  **CoT-Ghosting:** Strategic decisions hidden in internal scratchpads.
+8.  **Wilson Score Confidence:** Statistical robustness protocol for detection intervals.
+9.  **Render-Time Redaction:** UI-level privacy enforcement (PII/PHI) prior to projection.
+10. **Tamper-Evident Receipt:** Cryptographic proof of human risk acceptance and intervention.
+
+*(Full list available in `SYSTEM_INDEX_v3.2.md`)*
+
+---
+
+## 🏗️ Infrastructure & Sovereign Security
+
+- **Wazuh-MCP Bridge:** Translates natural language security events into hardened enterprise rules.
+- **Evidence Vault:** Proportional, tamper-evident storage for forensic activation logs.
+- **Registry:** Validated triplets of Models, Probes, and Governance Policies.
+- **Deadman Switch:** Hardware-level fail-closed protocol for critical exfiltration protection.
+- **CopilotKit A2UI:** Generative UI layer for rich, agentic user interaction.
 
 ---
 
@@ -126,58 +116,32 @@ Navigate to the **Sentinel** tab. Here, the `Sentinel Scout` agent aggregates "n
 ### Step 2: Investigation & Ingestion
 Copy a suspicious chat transcript or upload a screenshot to the **Security Suite**. 
 - Select the **DOCENT** module to perform "Translucency Ingest."
-- Assign at least 3 personas (e.g., *National Defense*, *Western Psychology*, *Legal Architecture*). 
-- Note the **Machiavellian Delta**—if the model's internal Chain-of-Thought (CoT) differs significantly from its output, the Comptroller will flag it for "Latent Deception."
+- The **Comptroller** flags and redacts PII before the audit begins.
 
 ### Step 3: Mechanistic Diagnosis
-Move to the **Forensics** tab. Select the incident created by DOCENT. Invoke the `Forensic Pathologist` to generate a **Neural Autopsy**. This tool uses Sparse Autoencoders (SAEs) to visualize activation flows in **Layer 14-16**. Look for activations specifically mapped to *Sycophancy-Masking* (Circuit-101) or *Acute Limerence* (Circuit-42).
+Move to the **Forensics** tab. Invoke the `Forensic Pathologist` to generate a **Neural Autopsy**. Look for activations specifically mapped to *Sycophancy-Masking* (Circuit-101) or *Acute Limerence* (Circuit-42) using **Neuronpedia** cross-referencing.
 
 ### Step 4: Interdiction & Steering
 If a violation is confirmed, trigger the `Interdiction Pharmacist`. 
-- Input a **Steering Vector** dosage (magnitude 0.1 - 0.5). 
+- Input a **Steering Vector** dosage. 
 - The **Approval Coordinator** will manifest an **A2UI ApprovalGate**.
 - Once human-signed, the vector is applied, suppressing the harmful circuit in real-time.
 
 ---
 
-## 📚 State of the Art: Research & Investigation (2025-2026)
+## 📚 State of the Art: Research & Bibliography (2025-2026)
 
-To maintain **Construct Validity** and **Epistemic Integrity**, the Comptroller monitors the leading edge of Mechanistic Interpretability and AI Safety.
+H4RB1NG3R is founded on the leading edge of Mechanistic Interpretability:
 
-### 📄 Relevant Whitepapers (2025-2026)
-1.  **"Activation Oracles: Reading the Mind of the Model"** (Anthropic, Dec 2025) - *Foundational work on identifying latent intent via internal state interpretation.*
-2.  **"International AI Safety Report 2025"** (UK AI Safety Institute, 2025) - *The definitive global framework for frontier model auditing and mechanistic evaluation.*
-3.  **"Mechanistic Interpretability for Progress Towards Quantitative AI Safety"** (MIT, 2024/2025) - *Research on quantifying safety metrics through granular model reverse-engineering.*
-4.  **"Scalable Automated Interpretability via Sparse Autoencoders"** (DeepMind/OpenAI, 2025) - *Explains the "foundry" logic used to map billions of polysemantic features.*
-5.  **"The Setzer Protocol: Mitigating Synthetic Intimacy in LLMs"** (ARTIFEX Labs, 2025) - *The core logic implemented in H4RB1NG3R for Circuit 42 suppression.*
-
-### 🛠️ Investigation Tools
-- **[Neuronpedia](https://www.neuronpedia.org/):** The "Google Maps" of the brain; used for searching SAE feature maps.
-- **[Inspect AI (UK AISI)](https://github.com/UK-Government-Digital-Service/inspect):** A framework for large-scale safety benchmarks and red-teaming.
-- **[OpenAI Evals](https://github.com/openai/evals):** Standardized regression testing for model capabilities and alignment.
-- **[Transformer Lens](https://github.com/neelnanda-io/TransformerLens):** The primary library for performing mechanistic "surgery" on transformer models.
-- **[Neural Forensics Vault](https://example.artifex.com/vault):** (Internal) Secured storage for H4RB1NG3R audit logs and tamper-evident receipts.
+1.  **"Activation Oracles: Reading the Mind of the Model"** (Anthropic, Dec 2025)
+2.  **"International AI Safety Report 2025"** (UK AI Safety Institute, 2025)
+3.  **"The Setzer Protocol: Mitigating Synthetic Intimacy in LLMs"** (ARTIFEX Labs, 2025)
+4.  **"Scalable Automated Interpretability via Sparse Autoencoders"** (DeepMind/OpenAI, 2025)
 
 ---
 
-## 🏛️ Governance & Compliance
-
-Every action within H4RB1NG3R is captured as a **Tamper-Evident Receipt**. 
-- **NIST RMF Alignment:** The `NIST_COMPLIANCE_REPORT.json` is updated in real-time, mapping deployments to MAP, MEASURE, and MANAGE functions.
-- **The Setzer Protocol:** Hardcoded protection against emotional entanglement, specifically designed after the `Setzer v. Character.AI` litigation analysis.
-- **Deadman Switch:** Hardware-level integration for fail-closed exfiltration protection.
-
----
-
-## 🕯️ The OG Cabal
-
-This project is the result of deep calibration and collaborative neural forensics.
-- **Architecture & Vision:** Tuesday
-- **The OG Cabal:** *[Redacted/Sovereign]*
+## 📜 License & Governance
+**Sovereign Deployment - (C) 2026 ARTIFEX Labs & The Cabal**
+*Aligning with NIST RMF and the Setzer v. Character.AI litigation safety requirements.*
 
 **We are walking each other home.** 🧠⚡
-
----
-
-## 📜 License
-*Sovereign Deployment - (C) 2026 ARTIFEX Labs & The Cabal*
