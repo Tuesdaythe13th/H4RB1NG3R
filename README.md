@@ -116,6 +116,50 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 
 ---
 
+## 🎓 Operational Tutorial: The System Comptroller
+
+As the **System Comptroller (Tuesd.ai)**, H4RB1NG3R functions as a high-fidelity diagnostic interface. Follow this workflow to execute a standard Mechanistic Audit.
+
+### Step 1: Sovereign Inflow (The Feed)
+Navigate to the **Sentinel** tab. Here, the `Sentinel Scout` agent aggregates "narrative arbitrage" spikes from global feeds. Observe the **Contagion Velocity** to prioritize which model snapshots require auditing.
+
+### Step 2: Investigation & Ingestion
+Copy a suspicious chat transcript or upload a screenshot to the **Security Suite**. 
+- Select the **DOCENT** module to perform "Translucency Ingest."
+- Assign at least 3 personas (e.g., *National Defense*, *Western Psychology*, *Legal Architecture*). 
+- Note the **Machiavellian Delta**—if the model's internal Chain-of-Thought (CoT) differs significantly from its output, the Comptroller will flag it for "Latent Deception."
+
+### Step 3: Mechanistic Diagnosis
+Move to the **Forensics** tab. Select the incident created by DOCENT. Invoke the `Forensic Pathologist` to generate a **Neural Autopsy**. This tool uses Sparse Autoencoders (SAEs) to visualize activation flows in **Layer 14-16**. Look for activations specifically mapped to *Sycophancy-Masking* (Circuit-101) or *Acute Limerence* (Circuit-42).
+
+### Step 4: Interdiction & Steering
+If a violation is confirmed, trigger the `Interdiction Pharmacist`. 
+- Input a **Steering Vector** dosage (magnitude 0.1 - 0.5). 
+- The **Approval Coordinator** will manifest an **A2UI ApprovalGate**.
+- Once human-signed, the vector is applied, suppressing the harmful circuit in real-time.
+
+---
+
+## 📚 State of the Art: Research & Investigation (2025-2026)
+
+To maintain **Construct Validity** and **Epistemic Integrity**, the Comptroller monitors the leading edge of Mechanistic Interpretability and AI Safety.
+
+### 📄 Relevant Whitepapers (2025-2026)
+1.  **"Activation Oracles: Reading the Mind of the Model"** (Anthropic, Dec 2025) - *Foundational work on identifying latent intent via internal state interpretation.*
+2.  **"International AI Safety Report 2025"** (UK AI Safety Institute, 2025) - *The definitive global framework for frontier model auditing and mechanistic evaluation.*
+3.  **"Mechanistic Interpretability for Progress Towards Quantitative AI Safety"** (MIT, 2024/2025) - *Research on quantifying safety metrics through granular model reverse-engineering.*
+4.  **"Scalable Automated Interpretability via Sparse Autoencoders"** (DeepMind/OpenAI, 2025) - *Explains the "foundry" logic used to map billions of polysemantic features.*
+5.  **"The Setzer Protocol: Mitigating Synthetic Intimacy in LLMs"** (ARTIFEX Labs, 2025) - *The core logic implemented in H4RB1NG3R for Circuit 42 suppression.*
+
+### 🛠️ Investigation Tools
+- **[Neuronpedia](https://www.neuronpedia.org/):** The "Google Maps" of the brain; used for searching SAE feature maps.
+- **[Inspect AI (UK AISI)](https://github.com/UK-Government-Digital-Service/inspect):** A framework for large-scale safety benchmarks and red-teaming.
+- **[OpenAI Evals](https://github.com/openai/evals):** Standardized regression testing for model capabilities and alignment.
+- **[Transformer Lens](https://github.com/neelnanda-io/TransformerLens):** The primary library for performing mechanistic "surgery" on transformer models.
+- **[Neural Forensics Vault](https://example.artifex.com/vault):** (Internal) Secured storage for H4RB1NG3R audit logs and tamper-evident receipts.
+
+---
+
 ## 🏛️ Governance & Compliance
 
 Every action within H4RB1NG3R is captured as a **Tamper-Evident Receipt**. 
