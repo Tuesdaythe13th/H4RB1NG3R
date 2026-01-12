@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HarbingerHealthz",
+  "type": "object",
+  "properties": {
+    "status": { "type": "string" },
+    "version": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "swarm_integrity": { "type": "string" },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "status": { "type": "string" }
+        },
+        "required": ["id", "name", "status"]
+      }
+    }
+  },
+  "required": ["status", "version", "timestamp", "swarm_integrity", "agents"]
+}

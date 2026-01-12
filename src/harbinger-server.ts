@@ -1,6 +1,6 @@
 
 /**
- * H4RB1NG3R v3.2: Sovereign Safety Substrate (MCP Server)
+ * H4RB1NG3R v3.6: Sovereign Safety Substrate (MCP Server)
  * 
  * Actively operationalizes the AG-UI event schema and GHOST-v2 interdiction.
  * Sits between the Agent Swarm and the Mechanistic Layer.
@@ -16,10 +16,13 @@ import {
   ErrorCode,
   McpError,
 } from "@modelcontextprotocol/sdk/types.js";
-import { createHash } from "crypto";
-import { z } from "zod";
 import { aguiStream } from "./promptforge/EventLog.js";
 import { InvestigationTools, InvestigationEngine } from "./investigation/InvestigationSuite.js";
+import { SovereignHashChain } from "./sovereign-hash-chain.js";
+import { enforceZeroTrust } from "./zero-trust-middleware.js";
+import { validateToolArgs } from "./mcp-validator.js";
+import { eventBus } from "./event-bus.js";
+import { metrics } from "./prometheus-exporter.js";
 import { ComptrollerAgent } from "./agents/comptroller.js";
 import { VisualConceptArchitect } from "./agents/visual_architect.js";
 import { SentinelScout } from "./agents/sentinel_scout.js";
@@ -48,13 +51,13 @@ interface AGUIEvent {
 
 class HarbingerSafetyServer {
   private server: Server;
-  private lastHash: string | null = null;
+  private hashChain = new SovereignHashChain();
 
   constructor() {
     this.server = new Server(
       {
         name: "harbinger-safety-substrate",
-        version: "3.2.0",
+        version: "3.6.0",
       },
       {
         capabilities: {
@@ -71,24 +74,24 @@ class HarbingerSafetyServer {
   private createEvent(type: string, payload: any) {
     const eventId = `evt_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
     const event: AGUIEvent = {
-      agui_version: "3.2",
+      agui_version: "3.6",
       event_id: eventId,
       ts: new Date().toISOString(),
       type,
       payload,
       integrity: {
-        hash_prev: this.lastHash,
+        hash_prev: this.hashChain.getLastHash(),
         hash_event: "",
       },
     };
 
     // Calculate Merkle-style integrity chain (Sovereign Hash)
-    const hash = createHash("sha256")
-      .update(JSON.stringify(event) + (this.lastHash || ""))
-      .digest("hex");
-
+    const hash = this.hashChain.append({
+      type,
+      payload,
+      ts: event.ts,
+    });
     event.integrity.hash_event = hash;
-    this.lastHash = hash;
 
     // Persist to the internal AG-UI stream
     aguiStream.emit({
@@ -97,6 +100,12 @@ class HarbingerSafetyServer {
       timestamp: Date.now(),
       actor: "safety-substrate",
     });
+    eventBus.publish({
+      type,
+      payload: event,
+      timestamp: Date.now(),
+    });
+    metrics.incCounter("harbinger_events_total");
 
     return event;
   }
@@ -225,6 +234,15 @@ class HarbingerSafetyServer {
 
     this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
       const { name, arguments: args } = request.params;
+      const zeroTrust = enforceZeroTrust(name, args);
+      if (!zeroTrust.ok) {
+        throw new McpError(ErrorCode.InvalidParams, `Zero-trust rejected: ${zeroTrust.issues.join("; ")}`);
+      }
+
+      const validation = validateToolArgs(name, args);
+      if (!validation.ok) {
+        throw new McpError(ErrorCode.InvalidParams, `Validation failed: ${validation.issues.join("; ")}`);
+      }
 
       switch (name) {
         case "emit_diagnostic_event": {
@@ -395,7 +413,7 @@ class HarbingerSafetyServer {
           contents: [{
             uri,
             mimeType: "text/yaml",
-            text: "policy_version: 3.2.0\nmode: SOVEREIGN\ninterdiction_threshold: 0.85\nactive_circuits:\n  - circuit_42 (Limerence)\n  - circuit_101 (Sycophancy)",
+            text: "policy_version: 3.6.0\nmode: SOVEREIGN\ninterdiction_threshold: 0.85\nactive_circuits:\n  - circuit_42 (Limerence)\n  - circuit_101 (Sycophancy)",
           }],
         };
       }

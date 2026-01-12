@@ -1,0 +1,8 @@
+version: 1
+stages:
+  - name: transcript_ingest
+    tool: ingest_transcript
+  - name: watermark_scan
+    tool: detect_output_anomalies
+  - name: orphic_signature
+    tool: orphic_signatures

@@ -1,0 +1,15 @@
+{
+  "title": "H4RB1NG3R Overview",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Swarm Integrity",
+      "targets": []
+    },
+    {
+      "type": "timeseries",
+      "title": "Event Throughput",
+      "targets": []
+    }
+  ]
+}
