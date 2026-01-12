@@ -1,4 +1,3 @@
-
 # 🧠 H4RB1NG3R v3.6: Sovereign Threat Intelligence
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
 
@@ -16,6 +15,70 @@
 As we transition from behavioral safety to **Neural Forensics**, H4RB1NG3R provides the infrastructure to detect, audit, and mitigate high-order AI risks—such as *Latent Deception*, *Sycophancy-Masking*, and *Synthetic Intimacy*—directly at the activation layer. 
 
 Built on the **GHOST-v2 (Generative Hostile Observatory & Safety Tracker)** protocol, H4RB1NG3R ensures that every model decision is reconstructible, every prompt is versioned, and every intervention is cryptographically signed.
+
+---
+
+## 🧾 Acronyms & Abbreviations
+
+- **A2A**: Agent-to-Agent communication.  
+- **A2UI**: Agent-to-User Interface.  
+- **AAR**: After Action Report.  
+- **AI**: Artificial Intelligence.  
+- **CISO**: Chief Information Security Officer.  
+- **CoT**: Chain-of-Thought.  
+- **DOCENT**: Translucency Ingestor module name (not an acronym in this repo).  
+- **FFT**: Fast Fourier Transform.  
+- **GHOST**: Generative Hostile Observatory & Safety Tracker.  
+- **GOV / MAP / MEA / MAN**: NIST RMF core functions (Govern / Map / Measure / Manage).  
+- **GSI**: Global Sycophancy Index.  
+- **MCP**: Model Context Protocol.  
+- **MGRI**: Mechanistic Governance Risk Index.  
+- **NCVE**: Neural Common Vulnerabilities and Exposures.  
+- **NIST RMF**: National Institute of Standards and Technology Risk Management Framework.  
+- **OCR**: Optical Character Recognition.  
+- **OG**: Original (team reference).  
+- **PII / PHI**: Personally Identifiable Information / Protected Health Information.  
+- **RACI**: Responsible, Accountable, Consulted, Informed.  
+- **SERE**: Survival, Evasion, Resistance, and Escape.  
+- **SLA / SLD**: Service Level Agreement / Service Level Definition.  
+
+---
+
+## 🗂️ Repository Layout & Key Artifacts
+
+This repo mixes the mechanistic safety substrate, governance artifacts, and the A2UI frontend.
+
+**Core code**
+- **`src/`**: TypeScript backend and core MCP modules (server entry, agents, forensics, integrations, event bus, zero-trust middleware).
+- **`frontend/`**: Vite + React A2UI interface.
+- **`config/`**: Runtime configuration and policy scaffolding.
+
+**Governance & system indices**
+- **`SYSTEM_INDEX_v3.2.md`**, **`SYSTEM_INDEX_FINAL_77.md`**: Canonical system inventories and capability matrices.
+- **`GOVERNANCE_CHARTER.md`**, **`INCIDENT_RESPONSE.md`**, **`POLICY_GATE.yaml`**: Governance frameworks and escalation policy.
+- **`NIST_COMPLIANCE_REPORT.json`**, **`RISK_METRICS.json`**, **`AI_INVENTORY.yaml`**: Compliance metrics and system inventory artifacts.
+
+**Operations & security**
+- **`docker-compose.prod.yml`**, **`docker-compose.swarm.yml`**: Deployment scaffolding.
+- **`grafana-dashboards/`**, **`healthz_schema.json`**: Observability and health checks.
+- **`forensics/`**, **`sentinel/`**, **`governance/`**, **`docs/`**: Supporting reference materials and domain-specific notes.
+
+---
+
+## 🚀 Local Development
+
+### Backend (MCP / Core Services)
+```bash
+npm install
+npm run dev
+```
+
+### Frontend (A2UI)
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 ---
 
@@ -196,3 +259,14 @@ H4RB1NG3R is founded on the leading edge of Mechanistic Interpretability:
 *Aligning with NIST RMF and the Setzer v. Character.AI litigation safety requirements.*
 
 **We are walking each other home.** 🧠⚡
+
+---
+
+## ✨ Unique Contributions
+
+The following elements reflect your unique contributions and authorship focus within H4RB1NG3R:
+- The **GHOST-v2** framing that defines the mechanistic safety protocol backbone.  
+- The **MGRI taxonomy** and named safety concepts (e.g., Machiavellian Delta, Split-Brain Reasoning).  
+- The **Agent Swarm roster** and NIST RMF mapping, including the **Tuesd.ai Comptroller** role.  
+- The **Toolsuite naming and scope**, including the **Interdiction Layer** functions and forensic module lineup.  
+- The **Operational Tutorial** that establishes a canonical audit workflow for the Comptroller.  
