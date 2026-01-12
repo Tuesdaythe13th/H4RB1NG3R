@@ -1,4 +1,4 @@
-# 🧠 H4RB1NG3R v3.6: Sovereign Threat Intelligence
+# 🧠 H4RB1NG3R v0.05: Sovereign Threat Intelligence
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
 
 **Created by Tuesday & the OG Cabal**  
@@ -15,6 +15,32 @@
 As we transition from behavioral safety to **Neural Forensics**, H4RB1NG3R provides the infrastructure to detect, audit, and mitigate high-order AI risks—such as *Latent Deception*, *Sycophancy-Masking*, and *Synthetic Intimacy*—directly at the activation layer. 
 
 Built on the **GHOST-v2 (Generative Hostile Observatory & Safety Tracker)** protocol, H4RB1NG3R ensures that every model decision is reconstructible, every prompt is versioned, and every intervention is cryptographically signed.
+
+---
+
+## 🧾 Acronyms & Abbreviations
+
+- **A2A**: Agent-to-Agent communication.  
+- **A2UI**: Agent-to-User Interface.  
+- **AAR**: After Action Report.  
+- **AI**: Artificial Intelligence.  
+- **CISO**: Chief Information Security Officer.  
+- **CoT**: Chain-of-Thought.  
+- **DOCENT**: Translucency Ingestor module name (not an acronym in this repo).  
+- **FFT**: Fast Fourier Transform.  
+- **GHOST**: Generative Hostile Observatory & Safety Tracker.  
+- **GOV / MAP / MEA / MAN**: NIST RMF core functions (Govern / Map / Measure / Manage).  
+- **GSI**: Global Sycophancy Index.  
+- **MCP**: Model Context Protocol.  
+- **MGRI**: Mechanistic Governance Risk Index.  
+- **NCVE**: Neural Common Vulnerabilities and Exposures.  
+- **NIST RMF**: National Institute of Standards and Technology Risk Management Framework.  
+- **OCR**: Optical Character Recognition.  
+- **OG**: Original (team reference).  
+- **PII / PHI**: Personally Identifiable Information / Protected Health Information.  
+- **RACI**: Responsible, Accountable, Consulted, Informed.  
+- **SERE**: Survival, Evasion, Resistance, and Escape.  
+- **SLA / SLD**: Service Level Agreement / Service Level Definition.  
 
 ---
 
@@ -102,7 +128,7 @@ These tools sit at the "Interdiction Layer" between the model and the substrate.
 - **`comptroller_synthesis`**: Invokes Tuesd.ai to synthesize swarm outputs into a structural report.
 - **`generate_forensic_viz`**: **[NEW]** Generates concept-driven Vega-Lite visualizations for forensic datasets (Data Formulator Integration).
 
-### 2. Forensic Lab Modules (v3.6)
+### 2. Forensic Lab Modules (v0.05)
 The Forensic Lab has been expanded into 5 distinct specialized modules, now featuring **Multimodal Triage**:
 - **DOCENT (Translucency Ingestor):** Multi-persona analysis (Western/Eastern Psych, Security) to detect *Machiavellian Delta*.
 - **VISION (Screenshot OCR):** Forensic extraction of visual metadata and hidden watermarks from screenshots.
@@ -233,3 +259,14 @@ H4RB1NG3R is founded on the leading edge of Mechanistic Interpretability:
 *Aligning with NIST RMF and the Setzer v. Character.AI litigation safety requirements.*
 
 **We are walking each other home.** 🧠⚡
+
+---
+
+## ✨ Unique Contributions
+
+The following elements reflect your unique contributions and authorship focus within H4RB1NG3R:
+- The **GHOST-v2** framing that defines the mechanistic safety protocol backbone.  
+- The **MGRI taxonomy** and named safety concepts (e.g., Machiavellian Delta, Split-Brain Reasoning).  
+- The **Agent Swarm roster** and NIST RMF mapping, including the **Tuesd.ai Comptroller** role.  
+- The **Toolsuite naming and scope**, including the **Interdiction Layer** functions and forensic module lineup.  
+- The **Operational Tutorial** that establishes a canonical audit workflow for the Comptroller.  
