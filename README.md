@@ -2,7 +2,8 @@
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
 
 **Created by Tuesday & the OG Cabal**  
-**Status:** `ARCHITECTURAL CLOSURE (15% Complete / 85% Gap)` | **Deployment:** `Sovereign` | **Substrate:** `A2A / MCP`  
+**Deployment:** `Sovereign`
+**Substrate:** `A2A / MCP`  
 **Primary Interface:** Tuesd.ai (System Comptroller)
 **Project Milestone:** Day 1 - Gap Closing & Skeleton Initialization
 
