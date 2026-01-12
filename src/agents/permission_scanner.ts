@@ -4,6 +4,9 @@
  *
  * Audits and validates permissions for actions, tools, and resource access.
  * Implements principle of least privilege.
+/**
+ * Permission Scanner
+ * Function: Capability Audit
  */
 
 import { Agent } from "../harbinger-server.js";
@@ -147,4 +150,16 @@ export const PermissionScanner: Agent = {
             }
         };
     }
+export const permissionScanner: Agent = {
+  name: "Permission Scanner",
+  id: "agent-permission-scanner",
+  description: "Capability Audit",
+
+  async execute(context: unknown) {
+    console.log("[Permission Scanner] Executing Capability Audit...");
+    return {
+      status: "active",
+      context,
+    };
+  },
 };

@@ -1,0 +1,13 @@
+version: 3.6.0
+mcp:
+  server_name: harbinger-safety-substrate
+  transport: stdio
+  audit_log: src/promptforge/event_log.jsonl
+wazuh:
+  enabled: true
+  rule_group: harbinger_rules
+  severity_threshold: 7
+telemetry:
+  prometheus:
+    enabled: true
+    port: 9464

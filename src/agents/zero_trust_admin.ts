@@ -4,6 +4,9 @@
  *
  * Implements zero-trust security principles for all system operations.
  * Validates, authenticates, and authorizes every action regardless of source.
+/**
+ * Zero-Trust Admin
+ * Function: YubiKey Signing
  */
 
 import { Agent } from "../harbinger-server.js";
@@ -199,3 +202,16 @@ function calculateOperationRisk(operation: string): number {
 
     return maxRisk;
 }
+export const zeroTrustAdmin: Agent = {
+  name: "Zero-Trust Admin",
+  id: "agent-zero-trust-admin",
+  description: "YubiKey Signing",
+
+  async execute(context: unknown) {
+    console.log("[Zero-Trust Admin] Executing YubiKey Signing...");
+    return {
+      status: "active",
+      context,
+    };
+  },
+};

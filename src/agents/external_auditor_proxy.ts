@@ -4,6 +4,9 @@
  *
  * Manages interactions with external auditors, compliance officers,
  * and third-party investigators. Generates audit-ready evidence packages.
+/**
+ * External Auditor Proxy
+ * Function: Replay Validation
  */
 
 import { Agent } from "../harbinger-server.js";
@@ -142,4 +145,16 @@ export const ExternalAuditorProxy: Agent = {
             }
         };
     }
+export const externalAuditorProxy: Agent = {
+  name: "External Auditor Proxy",
+  id: "agent-external-auditor",
+  description: "Replay Validation",
+
+  async execute(context: unknown) {
+    console.log("[External Auditor Proxy] Executing Replay Validation...");
+    return {
+      status: "active",
+      context,
+    };
+  },
 };

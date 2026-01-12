@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  harbinger:
+    image: harbinger:3.6.0
+    command: npm run start
+    environment:
+      - HARBINGER_ENV=production
+    ports:
+      - "9464:9464"
+    restart: unless-stopped

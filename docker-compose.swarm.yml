@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  harbinger:
+    build: .
+    command: npm run dev
+    environment:
+      - HARBINGER_ENV=development
+    volumes:
+      - .:/workspace/HARB1NG3R
+    ports:
+      - "9464:9464"
