@@ -1,4 +1,3 @@
-
 # 🧠 H4RB1NG3R v3.6: Sovereign Threat Intelligence
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
 
@@ -16,6 +15,44 @@
 As we transition from behavioral safety to **Neural Forensics**, H4RB1NG3R provides the infrastructure to detect, audit, and mitigate high-order AI risks—such as *Latent Deception*, *Sycophancy-Masking*, and *Synthetic Intimacy*—directly at the activation layer. 
 
 Built on the **GHOST-v2 (Generative Hostile Observatory & Safety Tracker)** protocol, H4RB1NG3R ensures that every model decision is reconstructible, every prompt is versioned, and every intervention is cryptographically signed.
+
+---
+
+## 🗂️ Repository Layout & Key Artifacts
+
+This repo mixes the mechanistic safety substrate, governance artifacts, and the A2UI frontend.
+
+**Core code**
+- **`src/`**: TypeScript backend and core MCP modules (server entry, agents, forensics, integrations, event bus, zero-trust middleware).
+- **`frontend/`**: Vite + React A2UI interface.
+- **`config/`**: Runtime configuration and policy scaffolding.
+
+**Governance & system indices**
+- **`SYSTEM_INDEX_v3.2.md`**, **`SYSTEM_INDEX_FINAL_77.md`**: Canonical system inventories and capability matrices.
+- **`GOVERNANCE_CHARTER.md`**, **`INCIDENT_RESPONSE.md`**, **`POLICY_GATE.yaml`**: Governance frameworks and escalation policy.
+- **`NIST_COMPLIANCE_REPORT.json`**, **`RISK_METRICS.json`**, **`AI_INVENTORY.yaml`**: Compliance metrics and system inventory artifacts.
+
+**Operations & security**
+- **`docker-compose.prod.yml`**, **`docker-compose.swarm.yml`**: Deployment scaffolding.
+- **`grafana-dashboards/`**, **`healthz_schema.json`**: Observability and health checks.
+- **`forensics/`**, **`sentinel/`**, **`governance/`**, **`docs/`**: Supporting reference materials and domain-specific notes.
+
+---
+
+## 🚀 Local Development
+
+### Backend (MCP / Core Services)
+```bash
+npm install
+npm run dev
+```
+
+### Frontend (A2UI)
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
 ---
 
