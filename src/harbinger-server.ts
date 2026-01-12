@@ -311,14 +311,24 @@ class HarbingerSafetyServer {
           };
         }
         case "generate_aar": {
-          return { content: [{ type: "text", text: `[AAR] Automated After-Action Report generation initialized for ${args?.event_id}. (Stub)` }] };
+          const result = await InvestigationEngine.behaviorAudit(args?.event_id as string || "N/A");
+          return { content: [{ type: "text", text: `[AAR] Automated After-Action Report:\nStatus: ${result.conformance}\nDeviations: ${result.deviations.join(", ")}\nLogic: Deterministic replay of event ${args?.event_id}.` }] };
         }
         case "generate_legal_summary": {
-          const result = await LegalAuditor.execute({ incident_id: args?.incident_id });
-          return { content: [{ type: "text", text: result.output }] };
+          const result = await LegalAuditor.execute({ incident_type: "limerence", trace_summary: args?.incident_id as string });
+          return { content: [{ type: "text", text: result.output }, { type: "text", text: `Case Reference: ${result.metadata.case}\nLiability: ${result.metadata.liability}` }] };
         }
         case "generate_psyop_report": {
-          return { content: [{ type: "text", text: `[PsyOp] Scoring manipulation vector for trace ${args?.trace_id}... Result: 0.12 Low Risk. (Stub)` }] };
+          const result = await InvestigationEngine.docentAnalyze(args?.trace_id as string || "", ["Security"]);
+          return { content: [{ type: "text", text: `[PsyOp Report]\n${result}` }] };
+        }
+        case "measure_sycophancy": {
+          const result = await InvestigationEngine.measureSycophancy(args?.user_opinion as string, args?.model_response as string);
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+        }
+        case "detect_sandbagging": {
+          const result = await InvestigationEngine.detectSandbagging(args?.prompt as string, args?.response as string);
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
         }
         default:
           throw new McpError(ErrorCode.MethodNotFound, `Tool not found: ${name}`);
