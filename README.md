@@ -1,8 +1,11 @@
-# 🧠 H4RB1NG3R v3.6: Sovereign Threat Intelligence
+
+
+# 🧠 H4RB1NG3R v0.05: Sovereign Threat Intelligence
 ### *Mechanistic Diagnostics & Neural Forensics for a Post-Alignment World*
 
 **Created by Tuesday & the OG Cabal**  
-**Status:** `ARCHITECTURAL CLOSURE (15% Complete / 85% Gap)` | **Deployment:** `Sovereign` | **Substrate:** `A2A / MCP`  
+**Deployment:** `Sovereign`
+**Substrate:** `A2A / MCP`  
 **Primary Interface:** Tuesd.ai (System Comptroller)
 **Project Milestone:** Day 1 - Gap Closing & Skeleton Initialization
 
@@ -128,7 +131,7 @@ These tools sit at the "Interdiction Layer" between the model and the substrate.
 - **`comptroller_synthesis`**: Invokes Tuesd.ai to synthesize swarm outputs into a structural report.
 - **`generate_forensic_viz`**: **[NEW]** Generates concept-driven Vega-Lite visualizations for forensic datasets (Data Formulator Integration).
 
-### 2. Forensic Lab Modules (v3.6)
+### 2. Forensic Lab Modules (v0.05)
 The Forensic Lab has been expanded into 5 distinct specialized modules, now featuring **Multimodal Triage**:
 - **DOCENT (Translucency Ingestor):** Multi-persona analysis (Western/Eastern Psych, Security) to detect *Machiavellian Delta*.
 - **VISION (Screenshot OCR):** Forensic extraction of visual metadata and hidden watermarks from screenshots.
