@@ -64,12 +64,12 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-600/30">
       <header className="h-16 border-b border-blue-900/50 bg-slate-950/80 backdrop-blur-md flex items-center justify-between px-6 sticky top-0 z-50">
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center font-extrabold text-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-transform hover:scale-110 cursor-pointer">H</div>
+          <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center font-extrabold text-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-transform hover:scale-110 cursor-pointer">T</div>
           <div>
             <h1 className="text-lg font-black tracking-tighter uppercase italic italic-glow">
-              H4RB1NG3R <span className="text-blue-500 font-normal italic-none">{SYSTEM_VERSION}</span>
+              Tuesd.ai <span className="text-blue-500 font-normal italic-none">System Comptroller</span>
             </h1>
-            <p className="text-[10px] text-blue-400 font-bold uppercase tracking-[0.3em] opacity-80">Sovereign Safety Index</p>
+            <p className="text-[10px] text-blue-400 font-bold uppercase tracking-[0.3em] opacity-80">H4RB1NG3R Sovereign Substrate</p>
           </div>
         </div>
 
@@ -80,8 +80,8 @@ const App: React.FC = () => {
                 key={m}
                 onClick={() => setMode(m)}
                 className={`px-4 py-1.5 rounded text-[10px] font-black tracking-widest transition-all ${mode === m
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
-                    : 'text-slate-500 hover:text-slate-200'
+                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
+                  : 'text-slate-500 hover:text-slate-200'
                   }`}
               >
                 {m}
@@ -104,8 +104,8 @@ const App: React.FC = () => {
                 key={item.id}
                 onClick={() => setActiveTab(item.id as any)}
                 className={`w-full flex items-center gap-4 px-4 py-4 rounded-xl transition-all group relative overflow-hidden ${activeTab === item.id
-                    ? 'bg-blue-600/10 border border-blue-600/20 text-blue-400'
-                    : 'text-slate-500 hover:bg-slate-900/50 hover:text-slate-200'
+                  ? 'bg-blue-600/10 border border-blue-600/20 text-blue-400'
+                  : 'text-slate-500 hover:bg-slate-900/50 hover:text-slate-200'
                   }`}
               >
                 <item.icon className={`w-5 h-5 ${activeTab === item.id ? 'text-blue-500' : 'group-hover:text-blue-400 transition-colors'}`} />

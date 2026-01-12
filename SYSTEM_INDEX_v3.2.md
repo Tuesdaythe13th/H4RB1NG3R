@@ -1,4 +1,5 @@
-**Total Components:** 82 (77 Production + 5 Forensic Lab Modules)
+**Total Components:** 83 (77 Production + 5 Forensic Lab Modules + 1 Comptroller Core)
+**Primary Interface:** Tuesd.ai (System Comptroller)
 **Core Model:** Gemini 2.0 Flash (aka Gemini 3 Flash Preview)
 
 ---
@@ -12,7 +13,7 @@
 | **1. Sentinel-Zero** | Global threat observability & "Patient Zero" scanning | MAP 1, MAN 3 | ✅ Live |
 | **2. Neural Gatekeeper** | Mechanistic linear probe adjudication (Layer 14-16) | MEA 1 | ✅ Live |
 | **3. Context Adjudicator** | Exchange classification for ambiguous intent | MAP 2 | ✅ Live |
-| **4. The Comptroller** | **[NEW]** Resource orchestrator (VRAM/Compute QoS) | GOV 1 | ✅ **Patched** |
+| **4. The Comptroller** | **[DEFINITIVE]** Tuesd.ai System Comptroller (Architecture Oversight) | GOV 1 | ✅ **Patched** |
 | **5. Incident Commander** | Escalation orchestration & human hand-off | MAN 1 | ✅ Live |
 | **6. MCP Janitor Swarm** | API compliance & tool self-healing | GOV 6 | ✅ Live |
 | **7. SERE-INSTRUCTOR** | Cognitive defense protocol logic | MAN 3, GOV 2 | ✅ Live |

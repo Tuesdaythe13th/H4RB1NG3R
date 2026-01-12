@@ -42,6 +42,7 @@ export const ICONS = {
 };
 
 export const CORE_AGENTS = [
+    { id: 'T-0', name: 'Tuesd.ai (Comptroller)', role: 'System Orchestration & Oversight', status: 'active', nistMapping: ['GOV 1', 'MAN 1'] },
     { id: 'S-0', name: 'Sentinel Scout', role: 'Global Threat Observability', status: 'active', nistMapping: ['MAP 1', 'MAN 3'] },
     { id: 'NG-1', name: 'Neural Gatekeeper', role: 'Activation Steering', status: 'scanning', nistMapping: ['MEA 1'] },
     { id: 'IP-4', name: 'Interdiction Pharmacist', role: 'Safety Intervention', status: 'idle', nistMapping: ['MEA 4'] },

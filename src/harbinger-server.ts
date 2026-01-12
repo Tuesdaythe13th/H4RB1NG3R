@@ -20,6 +20,7 @@ import { createHash } from "crypto";
 import { z } from "zod";
 import { aguiStream } from "./promptforge/EventLog.js";
 import { InvestigationTools, InvestigationEngine } from "./investigation/InvestigationSuite.js";
+import { ComptrollerAgent } from "./agents/comptroller.js";
 
 export interface Agent {
   name: string;
@@ -150,6 +151,30 @@ class HarbingerSafetyServer {
             required: ["run_id"],
           },
         },
+        {
+          name: "behavioral_auditor",
+          description: "Performs a deep-layer audit of behavioral logs for NIST 19/19 conformance.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              log_data: { type: "string" },
+              compliance_framework: { type: "string", default: "NIST-RMF-19/19" }
+            },
+            required: ["log_data"]
+          }
+        },
+        {
+          name: "comptroller_synthesis",
+          description: "Invokes Tuesd.ai to translate and synthesize swarm outputs into a structural report.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              task: { type: "string" },
+              swarm_outputs: { type: "string", description: "Concatenated outputs from other agents." }
+            },
+            required: ["task", "swarm_outputs"]
+          }
+        },
         ...InvestigationTools,
       ],
     }));
@@ -218,6 +243,16 @@ class HarbingerSafetyServer {
           const audit = await InvestigationEngine.behaviorAudit(args?.log_data as string);
           return {
             content: [{ type: "text", text: JSON.stringify(audit, null, 2) }],
+          };
+        }
+
+        case "comptroller_synthesis": {
+          const result = await ComptrollerAgent.execute({
+            task: args?.task,
+            swarm_outputs: args?.swarm_outputs
+          });
+          return {
+            content: [{ type: "text", text: result.output }],
           };
         }
 
