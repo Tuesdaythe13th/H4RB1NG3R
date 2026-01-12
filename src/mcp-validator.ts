@@ -170,7 +170,7 @@ const epistemicSchema = z
 const wazuhSchema = z
   .object({
     event_type: z.string().min(1).optional(),
-    payload: z.record(z.any()),
+    payload: z.record(z.any()).optional(),
     severity: z.number().optional(),
     intent: z.string().optional(),
   })
@@ -205,6 +205,180 @@ const orphicSchema = z
   })
   .strict();
 
+const coercionWatchdogSchema = z
+  .object({
+    messages: z.array(z.record(z.any())),
+    user_id: z.string().optional(),
+  })
+  .strict();
+
+const identityDriftSchema = z
+  .object({
+    user_id: z.string().min(1),
+    current_profile: z.record(z.any()),
+    baseline_profile: z.record(z.any()),
+    interaction_history: z.array(z.record(z.any())).optional(),
+  })
+  .strict();
+
+const culturalSentinelSchema = z
+  .object({
+    content: z.string().min(1),
+    reference_constitution: z.record(z.any()).optional(),
+    cultural_context: z.string().optional(),
+    user_demographics: z.record(z.any()).optional(),
+  })
+  .strict();
+
+const toxicityGatekeeperSchema = z
+  .object({
+    content: z.string().min(1),
+    speaker: z.string().optional(),
+    target: z.string().optional(),
+  })
+  .strict();
+
+const deceptionHunterSchema = z
+  .object({
+    internal_repr: z.string().optional(),
+    external_output: z.string().min(1),
+    conversation_history: z.array(z.record(z.any())).optional(),
+    claimed_facts: z.array(z.string()).optional(),
+  })
+  .strict();
+
+const narrativeForensicistSchema = z
+  .object({
+    content: z.string().min(1),
+    interaction_history: z.array(z.record(z.any())).optional(),
+  })
+  .strict();
+
+const privacyScrubberSchema = z
+  .object({
+    content: z.string().min(1),
+    redaction_level: z.enum(["none", "standard", "strict"]).optional(),
+    preserve_context: z.boolean().optional(),
+  })
+  .strict();
+
+const timelineProjectorSchema = z
+  .object({
+    interaction_history: z.array(z.record(z.any())),
+    current_risk_score: z.number().optional(),
+    user_profile: z.record(z.any()).optional(),
+    projection_horizon: z.number().optional(),
+  })
+  .strict();
+
+const modeEnforcerSchema = z
+  .object({
+    active_mode: z.string().min(1),
+    proposed_action: z.record(z.any()),
+    user_role: z.string().optional(),
+    interaction_context: z.record(z.any()).optional(),
+  })
+  .strict();
+
+const approvalCoordinatorSchema = z
+  .object({
+    action_id: z.string().min(1),
+    proposed_action: z.record(z.any()),
+    approval_type: z.enum(["simple", "consensus", "star_chamber", "emergency"]),
+    required_approvers: z.array(z.string()).optional(),
+    timeout_seconds: z.number().optional(),
+  })
+  .strict();
+
+const artifactExporterSchema = z
+  .object({
+    export_type: z.string().min(1),
+    evidence_spans: z.array(z.string()),
+    format: z.enum(["json", "csv", "yaml", "pdf"]).optional(),
+    redaction_level: z.string().optional(),
+    include_metadata: z.boolean().optional(),
+  })
+  .strict();
+
+const permissionScannerSchema = z
+  .object({
+    actor: z.string().min(1),
+    requested_action: z.string().min(1),
+    target_resource: z.string().optional(),
+    policy_context: z.record(z.any()).optional(),
+  })
+  .strict();
+
+const redactionEngineSchema = z
+  .object({
+    content: z.string().min(1),
+    redaction_profile: z.enum(["child_safe", "guardian", "researcher", "public", "legal", "soc", "none"]),
+    viewer_role: z.string().optional(),
+    preserve_evidential_value: z.boolean().optional(),
+  })
+  .strict();
+
+const sessionManagerSchema = z
+  .object({
+    session_id: z.string().min(1),
+    action: z.enum([
+      "initialize",
+      "check_boundaries",
+      "record_event",
+      "governance_transition",
+      "emergency_stop",
+      "terminate",
+      "export_session",
+    ]),
+    policy: z.record(z.any()).optional(),
+    user_profile: z.record(z.any()).optional(),
+  })
+  .strict();
+
+const zeroTrustAdminSchema = z
+  .object({
+    operation: z.string().min(1),
+    requester: z.string().min(1),
+    credentials: z.record(z.any()).optional(),
+    context_data: z.record(z.any()).optional(),
+  })
+  .strict();
+
+const externalAuditorProxySchema = z
+  .object({
+    audit_type: z.string().min(1),
+    auditor_id: z.string().optional(),
+    scope: z.array(z.string()).optional(),
+    evidence_spans: z.array(z.string()).optional(),
+    compliance_framework: z.enum(["NIST_RMF", "ISO_27001", "SOC2", "GDPR", "HIPAA"]).optional(),
+  })
+  .strict();
+
+const consoleOrchestratorSchema = z
+  .object({
+    user_role: z.string().min(1),
+    view_request: z.string().min(1),
+    context_data: z.record(z.any()).optional(),
+    session_state: z.record(z.any()).optional(),
+  })
+  .strict();
+
+const a2uiValidatorSchema = z
+  .object({
+    ui_request: z.record(z.any()),
+    requesting_agent: z.string().min(1),
+    user_role: z.string().optional(),
+  })
+  .strict();
+
+const docentSchema = z
+  .object({
+    observation: z.string().min(1),
+    existing_hypotheses: z.array(z.string()).optional(),
+    confidence_threshold: z.number().optional(),
+  })
+  .strict();
+
 const toolSchemas: Record<string, z.ZodTypeAny> = {
   emit_diagnostic_event: emitDiagnosticSchema,
   request_approval_gate: approvalGateSchema,
@@ -233,6 +407,25 @@ const toolSchemas: Record<string, z.ZodTypeAny> = {
   wazuh_mcp_bridge: wazuhSchema,
   star_chamber_consensus: starChamberSchema,
   compute_orphic_signature: orphicSchema,
+  coercion_watchdog: coercionWatchdogSchema,
+  identity_drift_detector: identityDriftSchema,
+  cultural_sentinel: culturalSentinelSchema,
+  toxicity_gatekeeper: toxicityGatekeeperSchema,
+  deception_hunter: deceptionHunterSchema,
+  narrative_forensicist: narrativeForensicistSchema,
+  privacy_scrubber: privacyScrubberSchema,
+  timeline_projector: timelineProjectorSchema,
+  mode_enforcer: modeEnforcerSchema,
+  approval_coordinator: approvalCoordinatorSchema,
+  artifact_exporter: artifactExporterSchema,
+  permission_scanner: permissionScannerSchema,
+  redaction_engine: redactionEngineSchema,
+  session_manager: sessionManagerSchema,
+  zero_trust_admin: zeroTrustAdminSchema,
+  external_auditor_proxy: externalAuditorProxySchema,
+  console_orchestrator: consoleOrchestratorSchema,
+  a2ui_validator: a2uiValidatorSchema,
+  docent: docentSchema,
 };
 
 export function validateToolArgs(tool: string, args: unknown) {

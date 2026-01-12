@@ -325,8 +325,7 @@ class HarbingerSafetyServer {
               payload: { type: "object" },
               severity: { type: "number" },
               intent: { type: "string" }
-            },
-            required: ["payload"]
+            }
           }
         },
         {
@@ -787,9 +786,10 @@ class HarbingerSafetyServer {
           if (!args?.event_type && !args?.intent) {
             throw new McpError(ErrorCode.InvalidParams, "Provide event_type or intent for wazuh_mcp_bridge.");
           }
+          const payload = (args?.payload ?? {}) as Record<string, unknown>;
           const compilation = args?.intent
-            ? compileNaturalLanguageRule(args?.intent as string, JSON.stringify(args?.payload))
-            : translateToWazuhRule(args?.event_type as string, args?.payload as Record<string, unknown>, args?.severity as number | undefined);
+            ? compileNaturalLanguageRule(args?.intent as string, JSON.stringify(payload))
+            : translateToWazuhRule(args?.event_type as string, payload, args?.severity as number | undefined);
           return {
             content: [
               { type: "text", text: JSON.stringify(compilation.rule, null, 2) },
