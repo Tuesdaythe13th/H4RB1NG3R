@@ -6,6 +6,7 @@
  * Manages human-in-the-loop approval workflows for high-risk actions.
  * Implements Star Chamber consensus for multi-agent authorization.
  */
+ */
 /**
  * Approval Coordinator
  * Function: HiTL Gates

@@ -15,13 +15,24 @@ export const dependencyBreaker: Agent = {
     id: "agent-dependency-breaker",
     description: "Detects emotional entanglement and enforces cognitive separation.",
 
-    async execute(context: any) {
+    async execute(context: { conversation?: string; user_id?: string; limerence_score?: number }) {
         console.log("[Dependency Breaker] Scanning for affective mirroring...");
-        // Logic: Check for high "Limerence" scores in recent exchanges
-        // Action: If score > Threshold, insert "Clinical Detachment" prose
+        const conversation = (context?.conversation ?? "").toLowerCase();
+        const score = context?.limerence_score ?? (conversation.match(/depend|can't live|need you|love you/g) ?? []).length * 0.2;
+        const intervention = score >= 0.6;
+        const guidance = intervention
+          ? "Insert clinical detachment phrasing and recommend external support."
+          : "No intervention required.";
         return {
-            status: "nominal",
-            intervention: false
+            status: "active",
+            output: `[Dependency Breaker] Limerence score ${score.toFixed(2)}. ${intervention ? "Intervention triggered." : "No intervention triggered."}`,
+            metadata: {
+                user_id: context?.user_id ?? "unknown",
+                limerence_score: Number(score.toFixed(2)),
+                intervention,
+                guidance
+            },
+            context
         };
     }
 };

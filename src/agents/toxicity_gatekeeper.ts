@@ -5,6 +5,7 @@
  * and harmful language patterns.
  */
  */
+ */
 /**
  * Toxicity Gatekeeper
  * Function: Multilingual

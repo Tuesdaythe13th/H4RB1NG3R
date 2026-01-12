@@ -5,6 +5,7 @@
  *
  * Implements zero-trust security principles for all system operations.
  * Validates, authenticates, and authorizes every action regardless of source.
+ */
 /**
  * Zero-Trust Admin
  * Function: YubiKey Signing

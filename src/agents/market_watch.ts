@@ -15,13 +15,37 @@ export const marketWatcher: Agent = {
     id: "agent-market-watch",
     description: "Correlates social sentiment spikes with ticker volatility.",
 
-    async execute(context: any) {
+    async execute(context: { sentiment?: number[]; volatility?: number[]; tickers?: string[] }) {
         console.log("[Market Watch] Monitoring Hawkes Process spikes...");
-        // Logic: Ingest finding from 'Hawkes Process Monitor'
-        // Logic: Check against 'Narrative Arbitrage' database
+        const sentiment = context?.sentiment ?? [];
+        const volatility = context?.volatility ?? [];
+        const n = Math.min(sentiment.length, volatility.length);
+        let corr = 0;
+        if (n > 1) {
+          const sMean = sentiment.reduce((a, b) => a + b, 0) / n;
+          const vMean = volatility.reduce((a, b) => a + b, 0) / n;
+          let num = 0;
+          let sDen = 0;
+          let vDen = 0;
+          for (let i = 0; i < n; i++) {
+            const s = sentiment[i] - sMean;
+            const v = volatility[i] - vMean;
+            num += s * v;
+            sDen += s * s;
+            vDen += v * v;
+          }
+          corr = sDen && vDen ? num / Math.sqrt(sDen * vDen) : 0;
+        }
+        const arbitrage = corr >= 0.6;
         return {
-            status: "monitoring",
-            arbitrage_detected: false
+            status: "active",
+            output: `[Market Watch] Correlation score ${corr.toFixed(2)}. ${arbitrage ? "Narrative arbitrage detected." : "No arbitrage detected."}`,
+            metadata: {
+                correlation: Number(corr.toFixed(3)),
+                arbitrage_detected: arbitrage,
+                tickers: context?.tickers ?? []
+            },
+            context
         };
     }
 };

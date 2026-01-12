@@ -5,6 +5,7 @@
  * and ensures interactions comply with active mode constraints.
  */
  */
+ */
 /**
  * Mode Enforcer
  * Function: Compliance Partitioning

@@ -5,6 +5,7 @@
  * Implements principle of least privilege.
  */
  */
+ */
 /**
  * Permission Scanner
  * Function: Capability Audit
