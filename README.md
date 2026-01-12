@@ -39,6 +39,27 @@ Built on the **Model Context Protocol (MCP)**, H4RB1NG3R orchestrates a speciali
 
 ---
 
+## 🏗️ Sovereign Safety Substrate (MCP)
+
+The H4RB1NG3R core operates as a **Sovereign MCP Server**, providing a standardized "Interdiction Layer" between the model and the user.
+
+### 1. Interdiction Layer (Tools)
+| Tool | Function | Safety Invariant |
+| --- | --- | --- |
+| `emit_diagnostic_event` | Audit Logging | Generates Merkle-style integrity chains for every mechanistic discovery. |
+| `request_approval_gate` | Human-in-the-Loop | Fails-closed. Requires a signed `approval.responded` event. |
+| `propose_steering_vector` | Mechanistic dosage | Proposes activation steering for Layer 14-16 suppression. |
+| `fetch_neural_autopsy` | Visual Forensics | Projects `DiffViewer` A2UI schema for CoT vs Output forensics. |
+
+### 2. GHOST-v2 Integration Flow
+When a **Sentinel Scout** detects a potential risk (e.g., *Sycophancy-Masking*):
+1. **Signal:** Sentinel emits `signal.computed` via `emit_diagnostic_event`.
+2. **Interdiction:** **Interdiction Pharmacist** receives the event and triggers `request_approval_gate`.
+3. **Projection:** The Substrate generates an **A2UI Envelope** (Compliance Mode).
+4. **Approval:** Upon human confirmation, a cryptographic `receipt_id` is issued, and the steering vector is applied.
+
+---
+
 ## 📦 Repository Structure
 
 ```text

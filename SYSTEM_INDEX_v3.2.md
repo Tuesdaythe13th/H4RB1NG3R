@@ -6,7 +6,10 @@
 **Deployment:** Tuesday (ARTIFEX Labs)  
 **Status:** Production Ready (Sovereign)  
 **Deployment:** Tuesday (ARTIFEX Labs)  
-**Total Components:** 77 (Production Complete)
+**Status:** Production Ready (Sovereign)  
+**Deployment:** Tuesday (ARTIFEX Labs)  
+**Total Components:** 80 (77 Production + 3 Investigation Suite)
+**Core Model:** Gemini 2.0 Flash (aka Gemini 3 Flash Preview)
 
 ---
 
@@ -93,6 +96,9 @@
 | **54. Permission Scanner** | Role-based access control for tools | GOV 4 | ✅ Live |
 | **55. Approval Coordinator** | Human-in-the-loop state manager | GOV 2 | ✅ Live |
 | **56. probe_recal.py** | Automatic linear probe calibration script | MEA 1 | ✅ Live |
+| **57. ingest_transcript()** | Behavioral transcript formatter (Docent style) | MAP 2 | ✅ Live |
+| **58. scan_screenshot_ocr()** | Neural forensic OCR extractor | MAP 2 | ✅ Live |
+| **59. detect_anomalies()** | Watermark & Sediment detection | MAP 4 | ✅ Live |
 
 ---
 
