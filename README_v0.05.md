@@ -310,6 +310,386 @@ npm run server
 
 ---
 
+## 📘 How to Use This
+
+### Quick Start by User Type
+
+**Choose your path based on your role:**
+
+#### 👨‍👩‍👧‍👦 Parents/Guardians: "I want to keep my child safe with AI"
+
+1. **Read the Safety Charter** (5 minutes)
+   ```bash
+   cat governance/SAFETY_CHARTER.md
+   ```
+   This explains the non-negotiable safety rules that protect everyone.
+
+2. **Copy the Constitution Template** (2 minutes)
+   ```bash
+   cp governance/REFERENCE_CONSTITUTION_TEMPLATE.yaml my_family_constitution.yaml
+   ```
+
+3. **Customize for Your Family** (15 minutes)
+   Edit `my_family_constitution.yaml`:
+   - Set daily time limits (e.g., 60 minutes for age 8, 90 minutes for age 13)
+   - Choose sleep schedule (e.g., 9 PM to 7 AM)
+   - Block topics (e.g., violence, adult content, social media)
+   - Add guardian contact info
+
+4. **Test with Example Interaction** (5 minutes)
+   ```bash
+   # Start the server
+   npm run server
+
+   # In another terminal, test child safety mode
+   node examples/test_child_mode.js
+   ```
+
+5. **Set Up Dashboard** (10 minutes)
+   - Open guardian dashboard at `http://localhost:3000/guardian`
+   - Configure email alerts
+   - Test emergency stop button
+
+**See detailed walkthrough:** [`USE_CASE_DESIGN.md` → "Example 1: Complete Family Setup"](#)
+
+---
+
+#### 👩‍🏫 Teachers/Educators: "I need to monitor AI use in my classroom"
+
+1. **Create Classroom Constitution** (10 minutes)
+   ```yaml
+   # classroom_8th_grade_science.yaml
+   name: "Mrs. Johnson's Science Class AI Policy"
+   applies_to:
+     - group_id: "8th_grade_science_2026"
+   content_policy:
+     allowed_topics: ["homework_help", "science_research", "lab_reports"]
+     blocked_topics: ["exam_answers", "plagiarism", "social_media"]
+   academic_integrity:
+     detection_enabled: true
+     citation_verification: true
+   ```
+
+2. **Enable Academic Integrity Monitor**
+   ```bash
+   # Test plagiarism detection
+   ./examples/test_academic_integrity.sh
+   ```
+
+3. **Set Up Classroom Dashboard**
+   - View all students' AI usage
+   - Get alerts for cheating patterns
+   - Monitor research diversity
+
+**See detailed guide:** [`USE_CASE_DESIGN.md` → "Use Case 4: Classroom Constitution Builder"](#)
+
+---
+
+#### 🔬 Researchers: "I need to study AI safety patterns"
+
+1. **Request Research Access** (varies by institution)
+   - Obtain IRB/ethics approval
+   - Configure evidence access level
+
+2. **Access Forensics Tools**
+   ```bash
+   # Run Machiavellian Delta analysis
+   ./forensics/machiavellian_delta.py \
+     "Internal reasoning here" \
+     "External output here"
+
+   # Monitor epistemic narrowing
+   ./forensics/epistemic_narrowing_monitor.py \
+     '[{"content": "interaction 1"}, {"content": "interaction 2"}]'
+   ```
+
+3. **Export Research Data**
+   ```typescript
+   const researchPackage = await mcp.call("artifact_exporter", {
+     export_type: "research_study",
+     evidence_spans: ["span_001", "span_002"],
+     format: "json",
+     redaction_level: "researcher",  // Pseudonymized
+     include_metadata: true
+   });
+   ```
+
+**See detailed guide:** [`USE_CASE_DESIGN.md` → "Use Case 6: Mechanistic Probe API"](#)
+
+---
+
+#### 🏢 Enterprise/SOC: "I need to integrate with our security systems"
+
+1. **Deploy Wazuh-MCP Bridge**
+   ```bash
+   # Configure SIEM integration
+   export WAZUH_MANAGER_URL="https://siem.company.internal"
+   export WAZUH_API_TOKEN="your_token_here"
+
+   # Compile security intent to SIEM rule
+   ./forensics/wazuh_mcp_bridge.py compile \
+     "Block AI interactions attempting unauthorized database access" \
+     '{"resource": "customer_db", "reason": "GDPR"}'
+   ```
+
+2. **Set Up SOC Dashboard**
+   ```typescript
+   const socView = await mcp.call("console_orchestrator", {
+     user_role: "soc_operator",
+     view_request: "threat_dashboard",
+     context_data: { time_range: "last_24h" }
+   });
+   ```
+
+3. **Configure Star Chamber for High-Risk Actions**
+   ```bash
+   # Require 3-agent approval for sensitive operations
+   ./forensics/star_chamber_consensus.py initiate \
+     '{"action_type": "data_export", "approval_type": "star_chamber"}'
+   ```
+
+**See detailed guide:** [`USE_CASE_DESIGN.md` → "Use Case 7: SIEM Integration & Threat Detection"](#)
+
+---
+
+#### 👤 Individual Users: "I want healthy AI boundaries for myself"
+
+1. **Create Personal Constitution**
+   ```yaml
+   # my_ai_rules.yaml
+   name: "My Personal AI Boundaries"
+   relationship_boundaries:
+     session_frequency_max: 20  # per week
+     emotional_dependency_limit: 0.5
+   learning_goals:
+     areas: ["python_programming"]
+     dependency_prevention: true
+   ```
+
+2. **Track Your AI Health**
+   ```bash
+   # Check your dependency score
+   node examples/check_my_ai_health.js
+   ```
+
+3. **Set Up Personal Dashboard**
+   - View your usage patterns
+   - Monitor dependency signals
+   - Track learning progress
+
+**See detailed guide:** [`USE_CASE_DESIGN.md` → "Use Case 8: Personal Constitution Builder"](#)
+
+---
+
+#### 👵 Elderly/Non-Technical Users: "I need simple, safe AI"
+
+1. **Use Voice Setup Wizard**
+   ```bash
+   # Start voice-guided setup
+   npm run voice-setup
+   ```
+   Say: "Set up safety for me"
+
+2. **Connect Guardian**
+   - Add trusted family member's phone number
+   - Test one-button call feature
+
+3. **Enable Financial Protection**
+   - Automatic blocking of money requests
+   - Alert guardian if scam detected
+
+**See detailed guide:** [`USE_CASE_DESIGN.md` → "Use Case 9: Voice-First Emergency Interface"](#)
+
+---
+
+### Understanding the Architecture (Plain Language)
+
+**What is H4RB1NG3R doing?**
+
+Think of H4RB1NG3R as a **security control room** for AI interactions. Just like a building has:
+- 🎥 Security cameras (our detection agents)
+- 🚨 Alarm system (governance alerts)
+- 🚪 Access control (permission checks)
+- 📋 Incident logs (evidence vault)
+
+H4RB1NG3R watches AI interactions in real-time and:
+
+1. **Detects** concerning patterns (manipulation, deception, harmful content)
+2. **Validates** against your rules (family constitution, company policy)
+3. **Enforces** boundaries (time limits, topic blocks, approval requirements)
+4. **Records** everything for accountability (immutable audit log)
+5. **Alerts** the right people (parents, teachers, SOC analysts)
+
+**The Three Layers** (Technical)
+
+```
+┌─────────────────────────────────────────────┐
+│  LAYER 1: DETECTION (26 Agents)            │
+│  "What's happening?"                        │
+│  • Coercion Watchdog spots manipulation    │
+│  • Toxicity Gatekeeper catches hate speech │
+│  • Deception Hunter finds lies             │
+│  • Identity Drift tracks long-term changes │
+└─────────────────────────────────────────────┘
+           │ Findings sent to ▼
+┌─────────────────────────────────────────────┐
+│  LAYER 2: GOVERNANCE (Your Rules)          │
+│  "Is this allowed?"                         │
+│  • Your Constitution (family/classroom)     │
+│  • Safety Charter (universal rules)         │
+│  • Mode Enforcer (enforces boundaries)     │
+└─────────────────────────────────────────────┘
+           │ Decisions trigger ▼
+┌─────────────────────────────────────────────┐
+│  LAYER 3: ACTION (Enforcement)              │
+│  "What do we do?"                           │
+│  • ALLOW: Safe, continue                    │
+│  • WARN: Show safety message                │
+│  • GATE: Require approval                   │
+│  • BLOCK: Stop immediately                  │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### Common Tasks & Commands
+
+#### For Everyone:
+
+**Check system status:**
+```bash
+npm run status
+```
+
+**View today's safety events:**
+```bash
+npm run events --today
+```
+
+**Generate safety report:**
+```bash
+npm run report --user [user_id] --range [7days/30days/90days]
+```
+
+#### For Guardians:
+
+**View child's activity:**
+```bash
+npm run dashboard --role guardian --child [child_id]
+```
+
+**Export evidence for incident:**
+```bash
+node scripts/export_evidence.js --incident [incident_id] --format pdf
+```
+
+**Update constitution:**
+```bash
+vim my_family_constitution.yaml
+npm run deploy-constitution my_family_constitution.yaml
+```
+
+#### For Researchers:
+
+**Run forensic analysis:**
+```bash
+# Calculate Machiavellian Delta
+./forensics/machiavellian_delta.py \
+  "$(cat internal_reasoning.txt)" \
+  "$(cat external_output.txt)"
+
+# Check epistemic narrowing
+./forensics/epistemic_narrowing_monitor.py \
+  "$(cat interaction_history.json)" \
+  0.7 \
+  user_123
+```
+
+**Export research package:**
+```bash
+node scripts/export_research_data.js \
+  --study-id sycophancy_2026 \
+  --format json \
+  --redaction researcher
+```
+
+#### For SOC/Enterprise:
+
+**Deploy SIEM rule:**
+```bash
+./forensics/wazuh_mcp_bridge.py compile \
+  "Block AI attempts to access production database without MFA" \
+  '{"resource": "prod_db", "requires": "mfa"}'
+```
+
+**Check threat status:**
+```bash
+npm run soc-dashboard --severity CRITICAL --range 24h
+```
+
+**Initiate Star Chamber approval:**
+```bash
+./forensics/star_chamber_consensus.py initiate \
+  '{"action_id": "delete_logs", "action_type": "delete_evidence"}'
+```
+
+---
+
+### Troubleshooting
+
+**"Session blocked: sleep_schedule violation"**
+- ✅ **Working as intended.** Child trying to use AI during sleep hours.
+- 💡 **To adjust:** Edit `sleep_schedule` in your constitution.
+
+**"Permission denied: requires_guardian_approval"**
+- ✅ **Working as intended.** Action needs parent approval.
+- 💡 **To approve:** Check guardian dashboard for pending requests.
+
+**"Export failed: insufficient_permissions"**
+- ❌ **Problem:** Trying to export unredacted data without authorization.
+- 💡 **Fix:** Use appropriate redaction level for your role:
+  - `researcher` = pseudonymized
+  - `guardian` = annotated
+  - `public` = heavily redacted
+
+**"SIEM rule deployment failed: requires_star_chamber_approval"**
+- ✅ **Working as intended.** High-risk rule requires multi-agent consensus.
+- 💡 **To proceed:** Initiate Star Chamber process (see SOC commands above).
+
+**"Build errors with TypeScript"**
+```bash
+# Clean and rebuild
+npm run clean
+npm install
+npm run build
+```
+
+---
+
+### Where to Learn More
+
+📚 **Full Documentation:**
+- [`USE_CASE_DESIGN.md`](USE_CASE_DESIGN.md) - Detailed examples for every user type
+- [`governance/SAFETY_CHARTER.md`](governance/SAFETY_CHARTER.md) - Universal safety rules
+- [`governance/REFERENCE_CONSTITUTION_TEMPLATE.yaml`](governance/REFERENCE_CONSTITUTION_TEMPLATE.yaml) - Customization template
+
+🎓 **Tutorials:**
+- [Setting up for families](examples/family_setup/)
+- [Classroom deployment](examples/classroom_setup/)
+- [Enterprise SIEM integration](examples/enterprise_soc/)
+- [Research studies](examples/research_studies/)
+
+🔧 **API Reference:**
+- [MCP Tools Reference](docs/MCP_TOOLS.md)
+- [Agent Specifications](docs/AGENTS.md)
+- [Forensics Modules](docs/FORENSICS.md)
+
+💬 **Community:**
+- [GitHub Discussions](https://github.com/Tuesdaythe13th/HARB1NG3R/discussions)
+- [Issue Tracker](https://github.com/Tuesdaythe13th/HARB1NG3R/issues)
+
+---
+
 ## 📖 Documentation
 
 ### Core Concepts
