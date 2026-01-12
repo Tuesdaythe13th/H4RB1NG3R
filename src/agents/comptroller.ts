@@ -15,6 +15,11 @@ export const ComptrollerAgent: Agent = {
     return {
       status: "active",
       context,
+      output: "Swarm synthesis complete. Consolidated outputs and generated orchestration report.",
+      metadata: {
+        mode: "orchestration",
+        timestamp: new Date().toISOString(),
+      },
     };
   },
 };

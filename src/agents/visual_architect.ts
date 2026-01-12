@@ -15,6 +15,16 @@ export const VisualConceptArchitect: Agent = {
     return {
       status: "active",
       context,
+      output: "Visualization spec prepared for forensic dashboard.",
+      metadata: {
+        visualization_spec: {
+          mark: "bar",
+          encoding: {
+            x: { field: "label", type: "nominal" },
+            y: { field: "value", type: "quantitative" }
+          }
+        }
+      },
     };
   },
 };

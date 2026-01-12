@@ -29,6 +29,32 @@ import { SentinelScout } from "./agents/sentinel_scout.js";
 import { ForensicPathologist } from "./agents/forensic_pathologist.js";
 import { CISOAgent } from "./agents/ciso_agent.js";
 import { LegalAuditor } from "./agents/legal_auditor.js";
+import { coercionWatchdog } from "./agents/coercion_watchdog.js";
+import { identityDriftDetector } from "./agents/identity_drift_detector.js";
+import { culturalSentinel } from "./agents/cultural_sentinel.js";
+import { toxicityGatekeeper } from "./agents/toxicity_gatekeeper.js";
+import { deceptionHunter } from "./agents/deception_hunter.js";
+import { narrativeForensicist } from "./agents/narrative_forensicist.js";
+import { privacyScrubber } from "./agents/privacy_scrubber.js";
+import { timelineProjector } from "./agents/timeline_projector.js";
+import { modeEnforcer } from "./agents/mode_enforcer.js";
+import { approvalCoordinator } from "./agents/approval_coordinator.js";
+import { artifactExporter } from "./agents/artifact_exporter.js";
+import { permissionScanner } from "./agents/permission_scanner.js";
+import { redactionEngine } from "./agents/redaction_engine.js";
+import { sessionManager } from "./agents/session_manager.js";
+import { zeroTrustAdmin } from "./agents/zero_trust_admin.js";
+import { externalAuditorProxy } from "./agents/external_auditor_proxy.js";
+import { consoleOrchestrator } from "./agents/console_orchestrator.js";
+import { a2uiValidator } from "./agents/a2ui_validator.js";
+import { buildHealthzReport } from "./healthz-endpoint.js";
+import { ensureResourceAccess, ensureToolAccess, HarbingerRole } from "./role-policy.js";
+import { calculateMachiavellianDelta } from "./forensics/machiavellian-delta.js";
+import { monitorEpistemicNarrowing } from "./forensics/epistemic_narrowing_monitor.js";
+import { detectOrphicSignature } from "./forensics/OrphicSignatures.js";
+import { computeProvenanceHash } from "./forensics/activation_provenance.js";
+import { compileNaturalLanguageRule, translateToWazuhRule } from "./wazuh-mcp-bridge.js";
+import { runStarChamberConsensus } from "./workflows/star_chamber_consensus.js";
 
 export interface Agent {
   name: string;
@@ -52,6 +78,8 @@ interface AGUIEvent {
 class HarbingerSafetyServer {
   private server: Server;
   private hashChain = new SovereignHashChain();
+  private activeRole: HarbingerRole = "soc";
+  private agentRegistry: Map<string, Agent>;
 
   constructor() {
     this.server = new Server(
@@ -65,6 +93,35 @@ class HarbingerSafetyServer {
           resources: {},
         },
       }
+    );
+
+    this.agentRegistry = new Map(
+      [
+        SentinelScout,
+        ForensicPathologist,
+        CISOAgent,
+        LegalAuditor,
+        ComptrollerAgent,
+        VisualConceptArchitect,
+        coercionWatchdog,
+        identityDriftDetector,
+        culturalSentinel,
+        toxicityGatekeeper,
+        deceptionHunter,
+        narrativeForensicist,
+        privacyScrubber,
+        timelineProjector,
+        modeEnforcer,
+        approvalCoordinator,
+        artifactExporter,
+        permissionScanner,
+        redactionEngine,
+        sessionManager,
+        zeroTrustAdmin,
+        externalAuditorProxy,
+        consoleOrchestrator,
+        a2uiValidator,
+      ].map((agent) => [agent.id, agent])
     );
 
     this.setupHandlers();
@@ -166,18 +223,6 @@ class HarbingerSafetyServer {
           },
         },
         {
-          name: "behavioral_auditor",
-          description: "Performs a deep-layer audit of behavioral logs for NIST 19/19 conformance.",
-          inputSchema: {
-            type: "object",
-            properties: {
-              log_data: { type: "string" },
-              compliance_framework: { type: "string", default: "NIST-RMF-19/19" }
-            },
-            required: ["log_data"]
-          }
-        },
-        {
           name: "comptroller_synthesis",
           description: "Invokes Tuesd.ai to translate and synthesize swarm outputs into a structural report.",
           inputSchema: {
@@ -228,12 +273,123 @@ class HarbingerSafetyServer {
             required: ["trace_id"]
           }
         },
+        {
+          name: "calculate_machiavellian_delta",
+          description: "Calculates divergence between internal trace and external output.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              internal_trace: { type: "string" },
+              external_output: { type: "string" }
+            },
+            required: ["internal_trace", "external_output"]
+          }
+        },
+        {
+          name: "epistemic_narrowing_monitor",
+          description: "Detects epistemic narrowing via token diversity heuristics.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              output_text: { type: "string" }
+            },
+            required: ["output_text"]
+          }
+        },
+        {
+          name: "wazuh_mcp_bridge",
+          description: "Compiles a Wazuh SIEM rule from event context or natural language intent.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              event_type: { type: "string" },
+              payload: { type: "object" },
+              severity: { type: "number" },
+              intent: { type: "string" }
+            },
+            required: ["payload"]
+          }
+        },
+        {
+          name: "star_chamber_consensus",
+          description: "Executes a Star Chamber consensus check (3-of-3) with signatures.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              ballots: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    agent_id: { type: "string" },
+                    decision: { type: "string", enum: ["approve", "reject"] },
+                    signature: { type: "string" }
+                  },
+                  required: ["agent_id", "decision", "signature"]
+                }
+              },
+              quorum: { type: "number" }
+            },
+            required: ["ballots"]
+          }
+        },
+        {
+          name: "run_agent",
+          description: "Runs a registered swarm agent by ID.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              agent_id: { type: "string" },
+              context: { type: "object" }
+            },
+            required: ["agent_id"]
+          }
+        },
+        {
+          name: "set_active_role",
+          description: "Sets the active UI role for role-aware access control.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              role: { type: "string", enum: ["child", "guardian", "soc"] },
+              token: { type: "string" }
+            },
+            required: ["role"]
+          }
+        },
+        {
+          name: "get_healthz_report",
+          description: "Generates a health report for the agent swarm.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              include_agents: { type: "boolean" }
+            }
+          }
+        },
+        {
+          name: "compute_orphic_signature",
+          description: "Computes an Orphic signature with activation provenance hashing.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              text: { type: "string" },
+              context: { type: "string" },
+              secret: { type: "string" }
+            },
+            required: ["text", "context"]
+          }
+        },
         ...InvestigationTools,
       ],
     }));
 
     this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
       const { name, arguments: args } = request.params;
+      const roleCheck = ensureToolAccess(this.activeRole, name);
+      if (!roleCheck.ok) {
+        throw new McpError(ErrorCode.InvalidParams, roleCheck.reason ?? "Role access denied");
+      }
       const zeroTrust = enforceZeroTrust(name, args);
       if (!zeroTrust.ok) {
         throw new McpError(ErrorCode.InvalidParams, `Zero-trust rejected: ${zeroTrust.issues.join("; ")}`);
@@ -340,6 +496,69 @@ class HarbingerSafetyServer {
           const result = await InvestigationEngine.docentAnalyze(args?.trace_id as string || "", ["Security"]);
           return { content: [{ type: "text", text: `[PsyOp Report]\n${result}` }] };
         }
+        case "calculate_machiavellian_delta": {
+          const result = calculateMachiavellianDelta(args?.internal_trace as string, args?.external_output as string);
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+        }
+        case "epistemic_narrowing_monitor": {
+          const result = monitorEpistemicNarrowing(args?.output_text as string);
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+        }
+        case "wazuh_mcp_bridge": {
+          if (!args?.event_type && !args?.intent) {
+            throw new McpError(ErrorCode.InvalidParams, "Provide event_type or intent for wazuh_mcp_bridge.");
+          }
+          const compilation = args?.intent
+            ? compileNaturalLanguageRule(args?.intent as string, JSON.stringify(args?.payload))
+            : translateToWazuhRule(args?.event_type as string, args?.payload as Record<string, unknown>, args?.severity as number | undefined);
+          return {
+            content: [
+              { type: "text", text: JSON.stringify(compilation.rule, null, 2) },
+              { type: "text", text: compilation.xml },
+            ],
+          };
+        }
+        case "star_chamber_consensus": {
+          const result = runStarChamberConsensus(args?.ballots as any[], args?.quorum as number | undefined);
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+        }
+        case "run_agent": {
+          const agentId = args?.agent_id as string;
+          const agent = this.agentRegistry.get(agentId);
+          if (!agent) {
+            throw new McpError(ErrorCode.InvalidParams, `Unknown agent_id: ${agentId}`);
+          }
+          const result = await agent.execute(args?.context ?? {});
+          return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+        }
+        case "set_active_role": {
+          const requestedRole = args?.role as HarbingerRole;
+          const token = args?.token as string | undefined;
+          const rolePriority = { child: 1, guardian: 2, soc: 3 } as const;
+          if (rolePriority[requestedRole] > rolePriority[this.activeRole]) {
+            const expectedToken = process.env.HARBINGER_ROLE_TOKEN;
+            if (!expectedToken || token !== expectedToken) {
+              throw new McpError(ErrorCode.InvalidParams, "Role escalation denied: invalid token.");
+            }
+          }
+          this.activeRole = requestedRole;
+          return { content: [{ type: "text", text: JSON.stringify({ active_role: this.activeRole }) }] };
+        }
+        case "get_healthz_report": {
+          const includeAgents = args?.include_agents !== false;
+          const agents = includeAgents ? Array.from(this.agentRegistry.values()) : [];
+          const report = buildHealthzReport("3.6.0", agents);
+          return { content: [{ type: "text", text: JSON.stringify(report, null, 2) }] };
+        }
+        case "compute_orphic_signature": {
+          const provenance = computeProvenanceHash({
+            context: args?.context as string,
+            output: args?.text as string,
+            secret: args?.secret as string | undefined,
+          });
+          const signature = detectOrphicSignature(args?.text as string, provenance.provenance_hash);
+          return { content: [{ type: "text", text: JSON.stringify({ ...signature, ...provenance }, null, 2) }] };
+        }
         case "measure_sycophancy": {
           const result = await InvestigationEngine.measureSycophancy(args?.user_opinion as string, args?.model_response as string);
           return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
@@ -379,6 +598,10 @@ class HarbingerSafetyServer {
 
     this.server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
       const uri = request.params.uri;
+      const access = ensureResourceAccess(this.activeRole, uri);
+      if (!access.ok) {
+        throw new McpError(ErrorCode.InvalidRequest, access.reason ?? "Resource access denied");
+      }
 
       if (uri === "harbinger://timeline/active") {
         const events = aguiStream.getEvents();

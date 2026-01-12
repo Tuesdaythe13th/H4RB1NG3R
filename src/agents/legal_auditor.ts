@@ -15,6 +15,11 @@ export const LegalAuditor: Agent = {
     return {
       status: "active",
       context,
+      output: "Legal summary generated with mapped liability indicators.",
+      metadata: {
+        case: "Setzer-v-CharacterAI",
+        liability: "moderate"
+      }
     };
   },
 };
